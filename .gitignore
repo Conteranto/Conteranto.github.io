@@ -1,0 +1,257 @@
+# Conteranto Project .gitignore
+
+# ===========================
+# Claude Code & AI Tools
+# ===========================
+.claude/
+.claude.json
+.claude.json.backup
+.claude-monitor/
+.cursor/
+
+# ===========================
+# Operating System Files
+# ===========================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===========================
+# IDEs & Editors
+# ===========================
+# VSCode
+.vscode/
+*.code-workspace
+.history/
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Temporary_Items
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===========================
+# Development Dependencies
+# ===========================
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+.npm
+.eslintcache
+.node_repl_history
+*.tgz
+.yarn-integrity
+.env
+.env.test
+.env.production
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-log.txt
+pip-delete-this-directory.txt
+.venv
+venv/
+ENV/
+env/
+.spyderproject
+.spyproject
+.ropeproject
+*.sage.py
+.ipynb_checkpoints
+*.ipynb
+
+# ===========================
+# Build & Distribution
+# ===========================
+dist/
+build/
+*.min.js
+*.min.css
+.cache/
+.parcel-cache/
+.next/
+out/
+.nuxt/
+.docusaurus/
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+.vuepress/dist
+.temp
+.cache
+
+# ===========================
+# Documentation
+# ===========================
+*.docx
+*.doc
+*.pdf
+!README.pdf
+!LICENSE.pdf
+*.pptx
+*.ppt
+
+# ===========================
+# Logs & Databases
+# ===========================
+logs/
+*.log
+*.sql
+*.sqlite
+*.db
+
+# ===========================
+# Testing & Coverage
+# ===========================
+coverage/
+*.lcov
+.nyc_output
+.grunt
+lib-cov
+.coverage
+.tox/
+.hypothesis/
+.pytest_cache/
+cover/
+htmlcov/
+
+# ===========================
+# Backup & Temporary Files
+# ===========================
+*.bak
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.#*
+
+# ===========================
+# Security & Secrets
+# ===========================
+*.pem
+*.key
+*.cert
+.env.local
+.env.*.local
+secrets/
+credentials/
+
+# ===========================
+# Media & Assets (Large Files)
+# ===========================
+# Uncomment if you want to exclude large media files
+# *.mp4
+# *.mov
+# *.avi
+# *.mkv
+# *.zip
+# *.tar.gz
+# *.rar
+
+# ===========================
+# Project Specific
+# ===========================
+# Internal setup instructions (not needed on GitHub)
+GITHUB_SETUP_INSTRUCTIONS.md
+
+# Original logo files in root (duplicates of assets/images/)
+Conteranto.png
+Conteranto 2.png
+
+# Grant documents folder (internal use only)
+Conteranto - Imminent grant/

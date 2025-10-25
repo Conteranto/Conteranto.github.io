@@ -1,0 +1,346 @@
+/* ===========================
+   Research Section Styles
+   Enhanced Typography Design
+   NO IMAGES - Pure Typography
+   =========================== */
+
+/* Research Section */
+.research-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.research-intro {
+    font-size: var(--text-lg);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    color: var(--text-muted-light);
+    line-height: var(--leading-relaxed);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Publications List */
+.publications-list {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+/* Publication Item - Enhanced Card without Images */
+.publication-item {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-base);
+    border-left: 6px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.publication-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-slow);
+}
+
+.publication-item:hover::before {
+    transform: scaleX(1);
+}
+
+.publication-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-2xl);
+    border-left-color: var(--primary-dark);
+}
+
+/* Publication Link Wrapper */
+.publication-link-wrapper {
+    display: block;
+    padding: var(--spacing-md);
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Publication Header */
+.publication-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ArXiv Badge */
+.arxiv-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #b31b1b 0%, #7f1717 100%);
+    color: white;
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.arxiv-badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Publication Title - Enhanced Typography */
+.publication-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    line-height: var(--leading-tight);
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+    transition: var(--transition-base);
+    font-family: var(--font-heading);
+}
+
+.publication-link-wrapper:hover .publication-title {
+    color: var(--primary-color);
+}
+
+/* Publication Authors */
+.publication-authors {
+    font-size: var(--text-base);
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+    line-height: var(--leading-relaxed);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.publication-authors strong {
+    font-weight: var(--font-bold);
+    color: var(--primary-color);
+    position: relative;
+}
+
+.publication-authors strong::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary-color);
+    opacity: 0.3;
+}
+
+/* Publication Metadata */
+.publication-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--bg-muted);
+}
+
+/* Publication Venue */
+.publication-venue {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: var(--leading-relaxed);
+    flex: 1;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 1rem;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: var(--font-bold);
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+}
+
+.status-published {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+.status-under-review {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
+}
+
+.status-badge svg {
+    width: 12px;
+    height: 12px;
+}
+
+/* Conference Badge */
+.conference-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
+    background: var(--bg-muted);
+    color: var(--text-dark);
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.conference-badge svg {
+    width: 14px;
+    height: 14px;
+    color: var(--primary-color);
+}
+
+/* Year Badge */
+.year-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.375rem 0.875rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+/* External Link Icon */
+.external-link-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-light);
+    border-radius: 50%;
+    color: var(--primary-color);
+    transition: var(--transition-base);
+    margin-left: auto;
+}
+
+.external-link-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.publication-link-wrapper:hover .external-link-icon {
+    background: var(--primary-color);
+    color: white;
+    transform: translateX(4px);
+}
+
+/* Publication Abstract Preview (Optional) */
+.publication-abstract {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: var(--leading-relaxed);
+    margin-top: var(--spacing-sm);
+    display: none; /* Hidden by default */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .publication-title {
+        font-size: var(--text-xl);
+    }
+
+    .publication-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .publication-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .arxiv-badge {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .publication-item {
+        border-left-width: 4px;
+    }
+
+    .publication-link-wrapper {
+        padding: var(--spacing-sm);
+    }
+
+    .publication-title {
+        font-size: var(--text-lg);
+    }
+
+    .status-badge,
+    .conference-badge,
+    .year-badge {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.625rem;
+    }
+}
+
+/* Animation for staggered entrance */
+.publication-item {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.publication-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.publication-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.publication-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Accessibility - Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    .publication-item {
+        animation: none;
+        opacity: 1;
+    }
+}

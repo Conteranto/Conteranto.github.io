@@ -1,0 +1,62 @@
+/* ===========================
+   Conteranto Website - Main Styles
+   Modular CSS Architecture
+   =========================== */
+
+/* Import Order:
+   1. Base styles & variables
+   2. Layout system
+   3. Reusable components
+   4. Navigation
+   5. Section-specific styles
+*/
+
+/* Base Styles & Variables */
+@import url('modules/base.css');
+
+/* Layout System */
+@import url('modules/layout.css');
+
+/* Reusable Components */
+@import url('modules/components.css');
+
+/* Navigation */
+@import url('modules/navigation.css');
+
+/* Section-Specific Styles */
+@import url('sections/hero.css');
+@import url('sections/research.css');
+@import url('sections/other-sections.css');
+
+/* ===========================
+   Print Styles
+   =========================== */
+@media print {
+    .navbar,
+    .scroll-indicator,
+    .hero-cta,
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+
+    .section {
+        page-break-inside: avoid;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    a {
+        color: var(--text-dark);
+        text-decoration: underline;
+    }
+
+    .publication-item,
+    .team-card,
+    .outcome-card {
+        box-shadow: none;
+        border: 1px solid var(--text-muted);
+    }
+}

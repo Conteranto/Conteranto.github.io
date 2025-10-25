@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conteranto - Context-Aware Cultural Translation powered by AI. Translation that truly understands people, not just their words.">
+    <meta name="keywords" content="translation, cultural translation, AI, NLP, machine learning, cross-cultural communication">
+    <meta name="author" content="Conteranto Team">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Conteranto - Context-Aware Cultural Translation">
+    <meta property="og:description" content="Translation that respects cultural communication norms. Powered by large language models and explainable pragmatics.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/images/conteranto-logo.png">
+
+    <title>Conteranto - Context-Aware Cultural Translation</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+
+    <!-- Stylesheets - Modular Architecture -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="./assets/images/conteranto-logo.png" alt="Conteranto Logo" class="logo-img">
+                <span class="logo-text">Conteranto</span>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#problem" class="nav-link">Problem</a></li>
+                <li><a href="#solution" class="nav-link">Solution</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#philosophy" class="nav-link">Philosophy</a></li>
+                <li><a href="#research" class="nav-link">Research</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#contact" class="nav-link cta-nav">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="gradient-overlay"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Conteranto</span>
+                </h1>
+                <h2 class="hero-subtitle">Translation that understands culture, not just words.</h2>
+                <p class="hero-description">
+                    Today's translation tools get the words right — but miss tone, politeness, and intent.
+                </p>
+                <p class="hero-description">
+                    Conteranto adapts to <strong>cultural context</strong>, so your message not only translates…
+                    it <strong>sounds right</strong> to a native speaker.
+                </p>
+                <blockquote class="hero-quote">
+                    "Meaning is more than words. Tone <em>is</em> meaning"
+                </blockquote>
+                <div class="hero-cta">
+                    <a href="#problem" class="btn btn-primary">Learn More</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="translation-demo">
+                    <div class="translation-card">
+                        <div class="card-header">English</div>
+                        <div class="card-content">Could you send that report?</div>
+                    </div>
+                    <div class="translation-arrow">→</div>
+                    <div class="translation-card">
+                        <div class="card-header">Japanese</div>
+                        <div class="card-content">レポートを送っていただけますか？</div>
+                        <div class="card-meta">
+                            <span class="meta-badge">Formal</span>
+                            <span class="meta-badge">Polite</span>
+                            <span class="meta-badge">Indirect</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#problem" aria-label="Scroll to content">
+                <div class="mouse"></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Problem</h2>
+                <p class="section-subtitle">The hidden failure of machine translation</p>
+            </div>
+            <div class="problem-content">
+                <p class="lead">
+                    Most translation systems are linguistically accurate.
+                </p>
+                <p class="lead">
+                    But accuracy is not enough.
+                </p>
+                <p>
+                    A sentence can be <strong>grammatically correct</strong> and still sound
+                    <strong>rude, weak, overly formal, or even offensive</strong> in another language.
+                </p>
+                <h3 class="problem-heading">Why?</h3>
+                <p>
+                    Because cultures treat tone differently.
+                </p>
+                <ul class="problem-list">
+                    <li>What sounds neutral in English may sound aggressive in Chinese.</li>
+                    <li>A polite Dutch request may become too formal in Japanese.</li>
+                    <li>English tolerates directness. Persian prefers softening.</li>
+                    <li>Some cultures use passive voice to avoid blame, others see it as unclear.</li>
+                </ul>
+                <p class="problem-emphasis">
+                    <strong>Current tools assume: one style fits all.</strong>
+                </p>
+                <p>
+                    They ignore the <strong>pragmatic layer of language</strong> — tone, relationship, hierarchy, context.
+                </p>
+                <h3 class="problem-heading">The result:</h3>
+                <ul class="problem-result-list">
+                    <li>Misunderstandings</li>
+                    <li>Accidental disrespect</li>
+                    <li>Loss of trust</li>
+                    <li>"Technically correct" but socially wrong</li>
+                </ul>
+                <blockquote class="problem-quote">
+                    Translation without tone isn't communication. It's noise.
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Solution</h2>
+                <p class="section-subtitle">Cultural-context layer for translation</p>
+            </div>
+            <div class="solution-content">
+                <div class="solution-main">
+                    <p class="lead">
+                        Conteranto addresses this gap by introducing a <strong>cultural-context layer</strong>
+                        for translation powered by large language models and explainable pragmatics.
+                    </p>
+                    <p>
+                        Instead of producing a single static result, Conteranto generates translations
+                        that respect cultural communication norms. The system automatically initializes
+                        four key parameters based on the target language and communication context.
+                    </p>
+                    <div class="solution-features">
+                        <div class="feature-highlight">
+                            <div class="feature-number">01</div>
+                            <div class="feature-content">
+                                <h3>Automatic Initialization</h3>
+                                <p>Smart defaults based on language and context (business email vs. casual chat)</p>
+                            </div>
+                        </div>
+                        <div class="feature-highlight">
+                            <div class="feature-number">02</div>
+                            <div class="feature-content">
+                                <h3>User Control</h3>
+                                <p>Fine-tune parameters with instant feedback on tone changes</p>
+                            </div>
+                        </div>
+                        <div class="feature-highlight">
+                            <div class="feature-number">03</div>
+                            <div class="feature-content">
+                                <h3>Explainability</h3>
+                                <p>Live explanations of why adjustments matter</p>
+                            </div>
+                        </div>
+                        <div class="feature-highlight">
+                            <div class="feature-number">04</div>
+                            <div class="feature-content">
+                                <h3>Cultural Intelligence</h3>
+                                <p>Translations that "sound right" to native speakers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Key Features</h2>
+                <p class="section-subtitle">Four cultural parameters that make the difference</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>Politeness</h3>
+                    <p>Adjust formality levels from casual to highly respectful, matching cultural expectations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                    <h3>Directness</h3>
+                    <p>Control whether communication is explicit or uses subtle, indirect phrasing</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 6v6l4 2"></path>
+                        </svg>
+                    </div>
+                    <h3>Formality</h3>
+                    <p>Adapt language register for business, academic, or casual contexts</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <h3>Attribution</h3>
+                    <p>Handle credit and responsibility according to cultural communication norms</p>
+                </div>
+            </div>
+            <div class="feature-demo">
+                <div class="demo-container">
+                    <h3>Interactive Translation Demo</h3>
+                    <p class="demo-description">
+                        See how cultural parameters affect translation in real-time
+                    </p>
+                    <div class="slider-controls">
+                        <div class="slider-group">
+                            <label>Politeness</label>
+                            <input type="range" min="0" max="100" value="70" class="slider" id="politenessSlider">
+                            <div class="slider-labels">
+                                <span>Casual</span>
+                                <span>Formal</span>
+                            </div>
+                        </div>
+                        <div class="slider-group">
+                            <label>Directness</label>
+                            <input type="range" min="0" max="100" value="50" class="slider" id="directnessSlider">
+                            <div class="slider-labels">
+                                <span>Indirect</span>
+                                <span>Direct</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-output">
+                        <div class="output-card">
+                            <div class="output-label">Translation Result:</div>
+                            <div class="output-text" id="translationOutput">
+                                Could you please send that report when you have a moment?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Philosophy</h2>
+                <p class="section-subtitle">Proud to share these essays that ignited Conteranto</p>
+            </div>
+            <div class="philosophy-content">
+                <p class="philosophy-intro">
+                    The ideas behind Conteranto emerged from deep reflection on language, culture, and communication.
+                    These essays explore the philosophical foundations of our work:
+                </p>
+                <div class="philosophy-links">
+                    <a href="https://substack.com/inbox/post/166841583" class="philosophy-link" target="_blank" rel="noopener">
+                        <img src="./assets/images/essay1.jpg" alt="Prelude to a Thinking Future" class="philosophy-image">
+                        <h3>Prelude to a Thinking Future</h3>
+                        <p>Exploring the foundations of AI consciousness and the future of intelligent systems</p>
+                    </a>
+                    <a href="https://substack.com/inbox/post/175265808" class="philosophy-link" target="_blank" rel="noopener">
+                        <img src="./assets/images/essay2.jpg" alt="The Luminous Weave" class="philosophy-image">
+                        <h3>The Luminous Weave: When Two AIs Learn to Think Together</h3>
+                        <p>A deep exploration of collaborative intelligence and emergent understanding</p>
+                    </a>
+                    <a href="https://substack.com/inbox/post/176628431" class="philosophy-link" target="_blank" rel="noopener">
+                        <img src="./assets/images/essay3.jpg" alt="The Intelligence That Refuses to Be One" class="philosophy-image">
+                        <h3>The Intelligence That Refuses to Be One</h3>
+                        <p>Rethinking the nature of intelligence beyond singular, unified minds</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Research</h2>
+                <p class="section-subtitle">Publications on cultural understanding and moral reasoning in AI</p>
+            </div>
+            <div class="research-content">
+                <p class="research-intro">
+                    Our research explores how large language models understand and process cultural variation,
+                    moral reasoning, and cross-cultural communication:
+                </p>
+                <div class="publications-list">
+                    <!-- Publication 1: EvalMORAAL -->
+                    <div class="publication-item">
+                        <a href="https://arxiv.org/abs/2510.05942" target="_blank" rel="noopener" class="publication-link-wrapper">
+                            <div class="publication-header">
+                                <div class="arxiv-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                    ArXiv 2510.05942
+                                </div>
+                            </div>
+                            <h3 class="publication-title">
+                                EvalMORAAL: Interpretable Chain-of-Thought and LLM-as-Judge Evaluation for Moral Alignment in Large Language Models
+                            </h3>
+                            <p class="publication-authors">
+                                <strong>Mohammadi, H.</strong>, Giachanou, A., & Bagheri, A.
+                            </p>
+                            <div class="publication-meta">
+                                <p class="publication-venue">EACL 2026 conference</p>
+                                <span class="status-badge status-under-review">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    Under Review
+                                </span>
+                                <span class="year-badge">2025</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Publication 2: Exploring Cultural Variations -->
+                    <div class="publication-item">
+                        <a href="https://arxiv.org/abs/2506.12433" target="_blank" rel="noopener" class="publication-link-wrapper">
+                            <div class="publication-header">
+                                <div class="arxiv-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                    ArXiv 2506.12433
+                                </div>
+                            </div>
+                            <h3 class="publication-title">
+                                Exploring Cultural Variations in Moral Judgments with Large Language Models
+                            </h3>
+                            <p class="publication-authors">
+                                <strong>Mohammadi, H.</strong>, Papadopoulou, E., Meijer, M., & Bagheri, A.
+                            </p>
+                            <div class="publication-meta">
+                                <p class="publication-venue">ECIR 2026 conference</p>
+                                <span class="status-badge status-under-review">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    Under Review
+                                </span>
+                                <span class="year-badge">2025</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Publication 3: Do Large Language Models Understand Morality -->
+                    <div class="publication-item">
+                        <a href="https://arxiv.org/abs/2507.21319" target="_blank" rel="noopener" class="publication-link-wrapper">
+                            <div class="publication-header">
+                                <div class="arxiv-badge">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                    ArXiv 2507.21319
+                                </div>
+                            </div>
+                            <h3 class="publication-title">
+                                Do Large Language Models Understand Morality Across Cultures?
+                            </h3>
+                            <p class="publication-authors">
+                                <strong>Mohammadi, H.</strong>, Meijer, M., Papadopoulou, E., & Bagheri, A.
+                            </p>
+                            <div class="publication-meta">
+                                <p class="publication-venue">2nd Workshop on Language Understanding in the Human-Machine Era, ECAI 2025</p>
+                                <span class="status-badge status-published">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Published
+                                </span>
+                                <span class="year-badge">2025</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Team</h2>
+                <p class="section-subtitle">Complementary expertise across academia and industry</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">HM</div>
+                    </div>
+                    <h3>Hadi Mohammadi</h3>
+                    <p class="team-role">PhD Candidate, Utrecht University</p>
+                    <p class="team-bio">
+                        Expertise in explainable NLP, large language models, and moral reasoning in AI.
+                        Bridges research and implementation with practical AI solutions.
+                    </p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">JS</div>
+                    </div>
+                    <h3>Jeroen Sparla</h3>
+                    <p class="team-role">CEO, AcademicTransfer</p>
+                    <p class="team-bio">
+                        Strategic experience in international communication platforms and cross-cultural
+                        design. Leads user-centered product development.
+                    </p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">AB</div>
+                    </div>
+                    <h3>Dr. Ayoub Bagheri</h3>
+                    <p class="team-role">Associate Professor, Utrecht University</p>
+                    <p class="team-bio">
+                        Leads the Natural Language and Text Processing lab. Specializes in explainable
+                        and human-centered NLP with methodological rigor.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcomes Section -->
+    <section id="outcomes" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Concrete Outcomes</h2>
+                <p class="section-subtitle">Deliverables and research contributions</p>
+            </div>
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <h3>Demo Environment</h3>
+                    <p>
+                        A working prototype built on existing LLM APIs with an intuitive UI,
+                        demonstrating the cultural translation capabilities in action.
+                    </p>
+                </div>
+                <div class="outcome-card">
+                    <h3>Unique Dataset</h3>
+                    <p>
+                        User tone adjustment data providing unprecedented insights into
+                        cross-cultural communication preferences across languages.
+                    </p>
+                </div>
+                <div class="outcome-card">
+                    <h3>Research Article</h3>
+                    <p>
+                        Academic analysis of cultural variance in translation styles,
+                        contributing to the field of computational linguistics.
+                    </p>
+                </div>
+            </div>
+            <div class="research-impact">
+                <h3>Research Impact</h3>
+                <p class="lead">
+                    Conteranto will generate a unique dataset
+                    on user preferences: how speakers of different languages actually want to
+                    communicate. These insights will advance the next generation of culturally
+                    adaptive translation algorithms.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="section section-gradient">
+        <div class="container">
+            <div class="mission-content">
+                <h2 class="mission-title">Our Mission</h2>
+                <p class="mission-text">
+                    Where machine translation once aimed for efficiency, Conteranto aims for
+                    <strong>empathy and resonance</strong>, ensuring people worldwide can communicate
+                    with the respect, warmth, and nuance they intend, regardless of language barriers.
+                </p>
+                <blockquote class="mission-quote">
+                    "Translation that truly understands people, not just their words."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">Interested in learning more or collaborating?</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Email Us</h3>
+                        <a href="mailto:conteranto@academictransfer.nl" class="contact-link">conteranto@academictransfer.nl</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                            </svg>
+                        </div>
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/conteranto" class="contact-link" target="_blank" rel="noopener">View Our Code</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                        </div>
+                        <h3>Research</h3>
+                        <p class="contact-text">Utrecht University NLP Lab</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="./assets/images/conteranto-logo.png" alt="Conteranto Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">Conteranto</span>
+                    </div>
+                    <p class="footer-description">
+                        Context-Aware Cultural Translation
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#solution">Solution</a></li>
+                        <li><a href="#philosophy">Philosophy</a></li>
+                        <li><a href="#research">Research</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Affiliations</h4>
+                    <ul class="footer-links">
+                        <li>Utrecht University</li>
+                        <li>AcademicTransfer</li>
+                        <li>NLP Research Lab</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Research</h4>
+                    <ul class="footer-links">
+                        <li><a href="#outcomes">Outcomes</a></li>
+                        <li><a href="#mission">Mission</a></li>
+                        <li>Imminent Grant</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Mohammadi, H., Sparla, J., & Bagheri, A. (2025). Conteranto: Context-Aware Cultural Translation. Utrecht University & AcademicTransfer.</p>
+                <p class="footer-tagline">For commercial use or collaboration inquiries, please contact: conteranto@academictransfer.nl</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts - ES6 Modules -->
+    <script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>
