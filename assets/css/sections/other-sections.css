@@ -258,6 +258,7 @@
     background: white;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-md);
+    color: var(--text-dark);
 }
 
 .research-impact h3 {
@@ -265,6 +266,14 @@
     font-weight: var(--font-semibold);
     margin-bottom: var(--spacing-sm);
     color: var(--text-dark);
+}
+
+.research-impact .lead {
+    color: var(--text-dark);
+}
+
+.research-impact .lead strong {
+    color: var(--primary-color);
 }
 
 /* ========== Mission Section ========== */
