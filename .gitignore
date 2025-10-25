@@ -255,3 +255,14 @@ Conteranto 2.png
 
 # Grant documents folder (internal use only)
 Conteranto - Imminent grant/
+
+# Legacy files (deprecated, replaced by modular architecture)
+assets/css/styles.css
+assets/js/script.js
+
+# Optional: Documentation files (uncomment lines below to exclude from repository)
+# COLOR_AND_ALIGNMENT_AUDIT.md
+# CONTRIBUTING.md
+# DEPLOYMENT.md
+# QUICK_START.md
+# RESTRUCTURE_SUMMARY.md
