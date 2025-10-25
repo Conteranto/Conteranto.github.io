@@ -421,20 +421,23 @@
 .contact-card h3 {
     font-size: var(--text-xl);
     margin-bottom: var(--spacing-sm);
+    color: var(--text-light);
+    font-weight: var(--font-semibold);
 }
 
 .contact-link {
-    color: var(--primary-lighter);
+    color: var(--text-light);
     font-weight: var(--font-semibold);
     word-break: break-word;
     overflow-wrap: break-word;
     display: inline-block;
+    text-decoration: underline;
 }
 
 .contact-link:hover {
-    color: white;
+    color: var(--primary-lighter);
 }
 
 .contact-text {
-    color: var(--text-muted-light);
+    color: var(--text-light);
 }

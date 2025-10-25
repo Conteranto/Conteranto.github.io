@@ -281,7 +281,7 @@ This project is part of academic research at Utrecht University. For collaborati
 
 - **Email**: conteranto@academictransfer.nl
 - **GitHub**: [github.com/conteranto](https://github.com/conteranto)
-- **Research Lab**: Utrecht University NLP Lab
+- **Research Lab**: [Utrecht University NLP Lab](https://nlp.sites.uu.nl/)
 
 ## Acknowledgments
 
