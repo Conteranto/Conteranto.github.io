@@ -9,7 +9,6 @@
 ### Files Status:
 
 **✓ WILL BE IGNORED (Not pushed to GitHub):**
-- `.claude/` - Claude Code configuration
 - `.DS_Store` - macOS system file
 - `Conteranto.png` and `Conteranto 2.png` - Duplicate logo files
 - `Conteranto - Imminent grant/` - Internal grant documents
@@ -66,7 +65,7 @@ Initialized empty Git repository in /Users/hadimohammadi/Documents/Conteranto/.g
 git add .
 ```
 
-**What this does:** Stages all your website files for commit. The `.gitignore` file automatically excludes Claude files, system files, and legacy files.
+**What this does:** Stages all your website files for commit. The `.gitignore` file automatically excludes system files and legacy files.
 
 ---
 
@@ -82,12 +81,11 @@ git status
 - ✅ `assets/css/main.css` is included
 - ✅ `assets/js/main.js` is included
 - ✅ All image files in `assets/images/` are included
-- ❌ `.claude/` is NOT listed
 - ❌ `.DS_Store` is NOT listed
 - ❌ `assets/css/styles.css` is NOT listed (legacy file)
 - ❌ `assets/js/script.js` is NOT listed (legacy file)
 
-**If you see legacy files or Claude files, run:**
+**If you see legacy files, run:**
 ```bash
 # Remove them from staging
 git rm --cached assets/css/styles.css assets/js/script.js
@@ -294,7 +292,6 @@ git push origin main
 - ✅ Enhanced Research section
 - ✅ All images and assets
 - ✅ Complete documentation
-- ❌ No Claude files
 - ❌ No legacy files
 - ❌ No internal documents
 
@@ -305,7 +302,6 @@ git push origin main
 After completing all steps, verify:
 
 - [ ] Repository shows only website files on GitHub
-- [ ] No `.claude/` folder visible
 - [ ] No `Conteranto.png` or `Conteranto 2.png` in root
 - [ ] No `assets/css/styles.css` (legacy)
 - [ ] No `assets/js/script.js` (legacy)
