@@ -1,99 +1,8 @@
 import { fetchLanguages, translateText } from './demo-api.js';
 import { EXAMPLES } from './demo-examples.js';
 
-// Cultural dimension defaults by language, based on communication norms research.
-// politeness, directness, formality, attribution (each 0-100)
-const CULTURAL_DEFAULTS = {
-  // East Asia — high politeness, indirect, formal, collective
-  ja: { politeness: 85, directness: 20, formality: 80, attribution: 25 },
-  ko: { politeness: 80, directness: 25, formality: 75, attribution: 30 },
-  zh: { politeness: 70, directness: 30, formality: 70, attribution: 30 },
-  mn: { politeness: 65, directness: 40, formality: 60, attribution: 35 },
-
-  // Southeast Asia — respectful, indirect, hierarchical
-  th: { politeness: 80, directness: 20, formality: 75, attribution: 25 },
-  vi: { politeness: 75, directness: 30, formality: 70, attribution: 30 },
-  id: { politeness: 70, directness: 35, formality: 60, attribution: 35 },
-  ms: { politeness: 70, directness: 35, formality: 60, attribution: 35 },
-  tl: { politeness: 65, directness: 40, formality: 55, attribution: 40 },
-  km: { politeness: 75, directness: 25, formality: 70, attribution: 30 },
-  lo: { politeness: 75, directness: 25, formality: 70, attribution: 30 },
-  my: { politeness: 75, directness: 25, formality: 70, attribution: 30 },
-
-  // South Asia — respectful, indirect, hierarchical
-  hi: { politeness: 75, directness: 30, formality: 70, attribution: 35 },
-  ur: { politeness: 80, directness: 25, formality: 75, attribution: 30 },
-  bn: { politeness: 75, directness: 30, formality: 65, attribution: 35 },
-  ta: { politeness: 75, directness: 30, formality: 70, attribution: 35 },
-  te: { politeness: 75, directness: 30, formality: 65, attribution: 35 },
-  mr: { politeness: 75, directness: 30, formality: 65, attribution: 35 },
-  gu: { politeness: 70, directness: 35, formality: 60, attribution: 40 },
-  pa: { politeness: 65, directness: 45, formality: 55, attribution: 45 },
-  ne: { politeness: 75, directness: 30, formality: 65, attribution: 35 },
-  si: { politeness: 75, directness: 30, formality: 65, attribution: 35 },
-
-  // Middle East & Central Asia — formal, elaborate courtesy
-  fa: { politeness: 85, directness: 20, formality: 75, attribution: 25 },
-  ar: { politeness: 80, directness: 35, formality: 80, attribution: 35 },
-  tr: { politeness: 70, directness: 40, formality: 65, attribution: 45 },
-  he: { politeness: 45, directness: 75, formality: 45, attribution: 70 },
-  ku: { politeness: 70, directness: 40, formality: 60, attribution: 40 },
-  ps: { politeness: 80, directness: 30, formality: 75, attribution: 30 },
-  tg: { politeness: 70, directness: 35, formality: 65, attribution: 35 },
-  uz: { politeness: 70, directness: 40, formality: 60, attribution: 40 },
-  kk: { politeness: 65, directness: 45, formality: 60, attribution: 40 },
-  az: { politeness: 65, directness: 45, formality: 60, attribution: 45 },
-  hy: { politeness: 70, directness: 40, formality: 65, attribution: 40 },
-  ka: { politeness: 70, directness: 45, formality: 60, attribution: 45 },
-
-  // Sub-Saharan Africa — communal, respectful, indirect
-  sw: { politeness: 70, directness: 35, formality: 60, attribution: 35 },
-  am: { politeness: 80, directness: 25, formality: 75, attribution: 30 },
-  yo: { politeness: 75, directness: 35, formality: 65, attribution: 40 },
-  ha: { politeness: 75, directness: 35, formality: 65, attribution: 35 },
-  ig: { politeness: 70, directness: 40, formality: 60, attribution: 40 },
-  zu: { politeness: 75, directness: 35, formality: 65, attribution: 35 },
-  xh: { politeness: 75, directness: 35, formality: 65, attribution: 35 },
-  rw: { politeness: 75, directness: 30, formality: 65, attribution: 30 },
-  sn: { politeness: 70, directness: 35, formality: 60, attribution: 35 },
-  mg: { politeness: 70, directness: 35, formality: 60, attribution: 35 },
-  so: { politeness: 70, directness: 45, formality: 65, attribution: 40 },
-
-  // Europe — varies significantly
-  nl: { politeness: 40, directness: 85, formality: 45, attribution: 75 },
-  de: { politeness: 50, directness: 75, formality: 65, attribution: 70 },
-  fr: { politeness: 65, directness: 45, formality: 70, attribution: 55 },
-  es: { politeness: 65, directness: 50, formality: 55, attribution: 55 },
-  pt: { politeness: 65, directness: 45, formality: 55, attribution: 50 },
-  it: { politeness: 60, directness: 55, formality: 55, attribution: 55 },
-  ru: { politeness: 45, directness: 70, formality: 55, attribution: 65 },
-  pl: { politeness: 60, directness: 55, formality: 60, attribution: 55 },
-  uk: { politeness: 55, directness: 60, formality: 55, attribution: 55 },
-  ro: { politeness: 60, directness: 50, formality: 55, attribution: 50 },
-  el: { politeness: 60, directness: 55, formality: 55, attribution: 55 },
-  hu: { politeness: 55, directness: 60, formality: 60, attribution: 60 },
-  cs: { politeness: 50, directness: 65, formality: 55, attribution: 60 },
-  bg: { politeness: 55, directness: 55, formality: 55, attribution: 55 },
-  sr: { politeness: 55, directness: 60, formality: 55, attribution: 55 },
-  hr: { politeness: 55, directness: 60, formality: 55, attribution: 55 },
-  sk: { politeness: 55, directness: 60, formality: 55, attribution: 55 },
-  lt: { politeness: 55, directness: 55, formality: 55, attribution: 55 },
-  lv: { politeness: 55, directness: 55, formality: 55, attribution: 55 },
-  et: { politeness: 45, directness: 70, formality: 50, attribution: 65 },
-  is: { politeness: 45, directness: 70, formality: 45, attribution: 70 },
-  ga: { politeness: 60, directness: 45, formality: 50, attribution: 50 },
-  cy: { politeness: 60, directness: 45, formality: 50, attribution: 50 },
-  mt: { politeness: 60, directness: 55, formality: 55, attribution: 50 },
-  eu: { politeness: 60, directness: 50, formality: 55, attribution: 55 },
-  ca: { politeness: 60, directness: 55, formality: 55, attribution: 55 },
-  gl: { politeness: 60, directness: 50, formality: 55, attribution: 50 },
-  en: { politeness: 50, directness: 60, formality: 50, attribution: 65 },
-
-  // Americas
-  qu: { politeness: 75, directness: 30, formality: 65, attribution: 30 },
-  gn: { politeness: 70, directness: 35, formality: 60, attribution: 35 },
-  ht: { politeness: 65, directness: 45, formality: 50, attribution: 45 },
-};
+// Cultural defaults loaded from API (computed from Hofstede + Hall research data)
+let culturalDefaults = {};
 
 const DEFAULT_DIMENSIONS = { politeness: 50, directness: 50, formality: 50, attribution: 50 };
 
@@ -101,10 +10,10 @@ const state = {
   sourceText: '',
   sourceLang: 'en',
   targetLang: 'nl',
-  politeness: 40,
-  directness: 85,
-  formality: 45,
-  attribution: 75,
+  politeness: 50,
+  directness: 50,
+  formality: 50,
+  attribution: 50,
   isLoading: false,
 };
 
@@ -120,6 +29,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const data = await fetchLanguages();
     populateLanguageSelectors(data);
+    // Build defaults map from API data
+    for (const region of data.regions_order) {
+      for (const lang of (data.regions[region] || [])) {
+        if (lang.defaults) culturalDefaults[lang.code] = lang.defaults;
+      }
+    }
   } catch {
     console.error('Failed to load languages');
   }
@@ -193,7 +108,7 @@ function getRepLabel(level) {
 }
 
 function applyCulturalDefaults(langCode) {
-  const defaults = CULTURAL_DEFAULTS[langCode] || DEFAULT_DIMENSIONS;
+  const defaults = culturalDefaults[langCode] || DEFAULT_DIMENSIONS;
   const dimensions = ['politeness', 'directness', 'formality', 'attribution'];
 
   dimensions.forEach(dim => {
