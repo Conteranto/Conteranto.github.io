@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80" fill="none">
+  <!-- Symbol: two overlapping speech bubbles representing cross-cultural dialogue -->
+  <g transform="translate(10, 8)">
+    <!-- Left bubble (source culture) -->
+    <path d="M8 12C8 5.373 13.373 0 20 0h20c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H28l-8 10v-10h-4c-4.418 0-8-3.582-8-8V12z" fill="#2563eb"/>
+    <!-- Right bubble (target culture) -->
+    <path d="M28 20c0-6.627 5.373-12 12-12h20c6.627 0 12 5.373 12 12v24c0 6.627-5.373 12-12 12H52l-8 10v-10h-4c-4.418 0-8-3.582-8-8V20z" fill="#0284c7" opacity="0.85"/>
+    <!-- Bridge arrow in overlap zone -->
+    <path d="M34 28h12m0 0l-4-4m4 4l-4 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Culture dots in left bubble -->
+    <circle cx="22" cy="20" r="2" fill="white" opacity="0.7"/>
+    <circle cx="30" cy="20" r="2" fill="white" opacity="0.7"/>
+    <!-- Culture dots in right bubble -->
+    <circle cx="52" cy="36" r="2" fill="white" opacity="0.7"/>
+    <circle cx="60" cy="36" r="2" fill="white" opacity="0.7"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="90" y="52" font-family="'Space Grotesk', 'Inter', system-ui, sans-serif" font-weight="700" font-size="38" fill="#1e293b" letter-spacing="-0.5">Conteranto</text>
+</svg>
