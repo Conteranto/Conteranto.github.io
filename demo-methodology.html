@@ -203,34 +203,48 @@
 
   <main class="methodology-main">
 
-    <h2>How Cultural Defaults Work</h2>
+    <h2>What happens when you pick a language?</h2>
     <p class="lead-text">
-      When you select a target language in the Conteranto demo, the four cultural dimension sliders automatically adjust to reflect that culture's typical communication norms. These defaults are computed from established cross-cultural research, not hand-picked.
+      When you choose Japanese as a target language, the sliders move to show how Japanese people typically communicate -- more polite, less direct. Pick Dutch, and they shift the opposite way -- very direct, informal. These starting positions are not random. They come from decades of cross-cultural research on how people in different countries actually communicate.
     </p>
 
-    <h2>Research Frameworks</h2>
+    <h2>Where do the numbers come from?</h2>
 
     <h3>Hofstede's Cultural Dimensions</h3>
     <p>
-      Geert Hofstede's cultural dimensions theory, developed from a study of IBM employees across 76 countries (1967-1973) and extended in <cite>Cultures and Organizations: Software of the Mind</cite> (3rd ed, 2010), provides country-level scores on several cultural axes. We use three:
+      In the 1970s, researcher Geert Hofstede surveyed over 100,000 IBM employees across 76 countries about their values and workplace behavior. He discovered measurable patterns that differ consistently between cultures. His work, published in <cite>Cultures and Organizations: Software of the Mind</cite> (3rd ed, 2010), remains the most widely used framework in cross-cultural research. We use three of his dimensions:
     </p>
-    <ul>
-      <li><strong>Power Distance (PDI)</strong> -- the degree to which less powerful members of a society accept that power is distributed unequally. High PDI cultures expect deference to authority.</li>
-      <li><strong>Individualism (IDV)</strong> -- the degree to which individuals are expected to look after only themselves and their immediate family. Low IDV (collectivist) cultures emphasize group harmony and face-saving.</li>
-      <li><strong>Uncertainty Avoidance (UAI)</strong> -- the degree to which members of a society feel uncomfortable with ambiguity. High UAI cultures prefer formal rules and structured communication.</li>
-    </ul>
+
+    <div class="mapping-card">
+      <p><strong>Power Distance (PDI)</strong> -- How much do people accept hierarchy? In Malaysia (PDI=104), you would never call your boss by their first name. In Israel (PDI=13), everyone does -- even in the military. High PDI cultures use more polite, deferential language when speaking to superiors.</p>
+    </div>
+    <div class="mapping-card">
+      <p><strong>Individualism (IDV)</strong> -- Do people think of themselves as "I" or "we"? In the US (IDV=91), people say "I think we should..." In South Korea (IDV=18), people say "Our team feels that..." Collectivist cultures avoid singling out individuals and prefer indirect, face-saving communication.</p>
+    </div>
+    <div class="mapping-card">
+      <p><strong>Uncertainty Avoidance (UAI)</strong> -- How comfortable are people with ambiguity? In Greece (UAI=112), people follow strict protocols and formal procedures. In Singapore (UAI=8), people adapt on the fly and keep things informal. High UAI cultures prefer structured, formal language.</p>
+    </div>
 
     <h3>Hall's Context Theory</h3>
     <p>
-      Edward T. Hall's framework from <cite>Beyond Culture</cite> (1976) classifies cultures along a spectrum from low-context (meaning is stated explicitly) to high-context (meaning is embedded in context, relationships, and nonverbal cues).
+      Some cultures say exactly what they mean. Others expect you to read between the lines. Anthropologist Edward T. Hall described this in <cite>Beyond Culture</cite> (1976):
     </p>
+    <ul>
+      <li><strong>Low-context cultures</strong> (Dutch, German, American) -- Communication is explicit and direct. "The report is due Friday" means exactly that.</li>
+      <li><strong>High-context cultures</strong> (Japanese, Persian, Arab) -- Meaning is wrapped in context, tone, and relationship. "It might be nice to have the report soon" could mean the same thing.</li>
+    </ul>
     <div class="note-box">
-      <strong>Note:</strong> Hall did not assign numerical scores to countries. Our context (CTX) values are estimates based on Hall's qualitative framework, Erin Meyer's relative positioning in <cite>The Culture Map</cite> (2014), and regional communication research. These estimates are transparent and shown in the data table below.
+      <strong>Important:</strong> Hall described cultures qualitatively -- he did not assign numerical scores. Our context values (CTX) are estimates based on Hall's framework, Erin Meyer's country rankings in <cite>The Culture Map</cite> (2014), and subsequent cross-cultural communication research. Every CTX value is shown transparently in the data table below so you can see exactly what we used.
     </div>
 
-    <h2>The Formula</h2>
+    <h3>Politeness Theory</h3>
     <p>
-      Each of Conteranto's four cultural dimensions is computed as a weighted combination of Hofstede's scores and our context estimate:
+      Brown and Levinson's <cite>Politeness: Some Universals in Language Usage</cite> (1987) established that all cultures use strategies to protect "face" -- the social image people want to maintain. However, which strategies they use varies dramatically. Some cultures soften requests to protect the listener's autonomy (negative politeness), while others emphasize warmth and solidarity (positive politeness). Recent research confirms that politeness markers are among the most culturally variable aspects of language -- and the most frequently lost in translation (Masoud et al., 2024).
+    </p>
+
+    <h2>How we calculate the defaults</h2>
+    <p>
+      We combine these research scores into four dimensions using a weighted formula. Each formula reflects the research consensus on which cultural factors most influence that communication style:
     </p>
 
     <div class="formula-box">
@@ -240,54 +254,62 @@
       <span class="dim">Attribution</span> <span class="wt">= 0.55 ×</span> <span class="src">IDV</span> <span class="wt">+ 0.25 ×</span> <span class="src">(100 - PDI)</span> <span class="wt">+ 0.20 ×</span> <span class="src">(100 - CTX)</span>
     </div>
 
-    <h3>Why these mappings?</h3>
+    <h3>In plain English</h3>
 
     <div class="mapping-card">
-      <p><strong>Politeness</strong> -- Hierarchical societies (high PDI) use more deference markers. Collectivist cultures (low IDV) prioritize face-saving. High-context communication relies on implicit courtesy.</p>
+      <p><strong>Politeness</strong> -- Strong hierarchy + group-oriented + read-between-the-lines = more polite, deferential language. Think: Japanese, Korean, Persian.</p>
     </div>
     <div class="mapping-card">
-      <p><strong>Directness</strong> -- Individualist cultures (high IDV) value explicit self-expression. Low-context communication requires stating things plainly. Egalitarian societies (low PDI) allow direct challenges.</p>
+      <p><strong>Directness</strong> -- Individualist + say-what-you-mean + egalitarian = more direct, explicit speech. Think: Dutch, Israeli, American.</p>
     </div>
     <div class="mapping-card">
-      <p><strong>Formality</strong> -- Hierarchical societies (high PDI) expect formal registers. High uncertainty avoidance (high UAI) prefers structured, rule-following communication. High-context cultures use elaborate forms.</p>
+      <p><strong>Formality</strong> -- Strong hierarchy + need for structure + high-context = more formal register and vocabulary. Think: Arabic, Japanese, Greek.</p>
     </div>
     <div class="mapping-card">
-      <p><strong>Attribution</strong> -- Individualist cultures (high IDV) use "I" statements and active voice. Egalitarian societies (low PDI) express personal responsibility. Low-context communication names actors explicitly.</p>
+      <p><strong>Attribution</strong> -- Individualist + egalitarian + explicit communication = "I did this" instead of "mistakes were made." Think: American, Australian, Dutch.</p>
     </div>
 
-    <h2>Linguistic Adjustments</h2>
+    <h3>Example: Japanese</h3>
+    <div class="note-box">
+      Japan has PDI=54, IDV=46, UAI=92, CTX=90 (very high-context). Plugging into the formulas:<br>
+      Politeness = 0.35(54) + 0.30(54) + 0.35(90) = 67, plus keigo adjustment +10 = <strong>77</strong><br>
+      Directness = 0.40(46) + 0.35(10) + 0.25(46) = 33, minus adjustment -5 = <strong>28</strong><br>
+      This matches reality: Japanese communication is famously polite and indirect.
+    </div>
+
+    <h2>Language-specific features</h2>
     <p>
-      Some languages grammaticalize cultural dimensions beyond what country-level scores capture. For example, Japanese has keigo (a multi-level politeness system built into verb conjugation), Persian has ta'arof (an elaborate courtesy system), and Korean has six distinct speech levels tied to social hierarchy. These linguistic structures amplify certain dimensions independently of Hofstede's country scores.
+      Some languages have built-in politeness systems that go beyond what country-level culture scores capture. For example, Japanese has <strong>keigo</strong> -- six different politeness levels baked into the grammar itself. Persian has <strong>ta'arof</strong> -- an elaborate courtesy ritual where you might refuse a compliment three times before accepting. Korean has <strong>six speech levels</strong> that change verb endings based on who you're talking to.
     </p>
     <p>
-      We apply small corrections (+3 to +10 points) for languages with such features. These adjustments are listed in the data table below.
+      Because these features are part of the language structure (not just cultural preference), we add small corrections (+3 to +10 points) on top of the formula:
     </p>
 
     <table class="adj-table">
       <thead>
         <tr>
           <th>Language</th>
-          <th>Feature</th>
-          <th>Adjustments</th>
+          <th>What makes it special</th>
+          <th>Adjustment</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>Japanese</td><td>Keigo (honorific system)</td><td>Politeness +10, Directness -5, Formality +5</td></tr>
-        <tr><td>Persian</td><td>Ta'arof (courtesy system)</td><td>Politeness +10, Directness -8</td></tr>
-        <tr><td>Korean</td><td>Speech levels (6 registers)</td><td>Politeness +8, Directness -3, Formality +5</td></tr>
-        <tr><td>Thai</td><td>Pronoun/particle system</td><td>Politeness +8, Directness -5</td></tr>
-        <tr><td>Urdu</td><td>Adab (etiquette system)</td><td>Politeness +8, Directness -3</td></tr>
-        <tr><td>Arabic</td><td>Honorific forms</td><td>Politeness +5, Formality +3</td></tr>
-        <tr><td>Hindi</td><td>Honorific verb forms</td><td>Politeness +5</td></tr>
-        <tr><td>Vietnamese</td><td>Pronoun hierarchy</td><td>Politeness +5, Directness -3</td></tr>
-        <tr><td>Dutch</td><td>Culturally amplified directness</td><td>Directness +5, Politeness -3</td></tr>
-        <tr><td>Hebrew</td><td>Dugri (straight talk) culture</td><td>Directness +5, Politeness -3</td></tr>
+        <tr><td>Japanese</td><td>Keigo -- six grammatical politeness levels in verb conjugation</td><td>Politeness +10, Directness -5, Formality +5</td></tr>
+        <tr><td>Persian</td><td>Ta'arof -- elaborate courtesy system with ritualized offers and refusals</td><td>Politeness +10, Directness -8</td></tr>
+        <tr><td>Korean</td><td>Six speech levels that change verb endings based on social hierarchy</td><td>Politeness +8, Directness -3, Formality +5</td></tr>
+        <tr><td>Thai</td><td>Pronoun and particle system that encodes social status in every sentence</td><td>Politeness +8, Directness -5</td></tr>
+        <tr><td>Urdu</td><td>Adab -- etiquette system with formal/informal verb forms</td><td>Politeness +8, Directness -3</td></tr>
+        <tr><td>Arabic</td><td>Elaborate honorific forms of address tied to religious and social norms</td><td>Politeness +5, Formality +3</td></tr>
+        <tr><td>Hindi</td><td>Three-level honorific verb system (intimate, neutral, respectful)</td><td>Politeness +5</td></tr>
+        <tr><td>Vietnamese</td><td>Dozens of pronouns that encode age, gender, and social relationship</td><td>Politeness +5, Directness -3</td></tr>
+        <tr><td>Dutch</td><td>Cultural norm of directness that exceeds what Hofstede scores predict</td><td>Directness +5, Politeness -3</td></tr>
+        <tr><td>Hebrew</td><td>Dugri culture -- "straight talk" valued as honesty, not rudeness</td><td>Directness +5, Politeness -3</td></tr>
       </tbody>
     </table>
 
-    <h2>Full Data Table</h2>
+    <h2>Full data table</h2>
     <p>
-      All 76 languages with their research inputs and computed outputs. Hofstede scores (PDI, IDV, UAI) are from published research where available. CTX values are our estimates. Values are clamped to safe ranges (Politeness 20-90, Directness 10-90, Formality 25-85, Attribution 15-85).
+      Below are all 76 languages with their research inputs (PDI, IDV, UAI from Hofstede; CTX estimated by us) and the computed output values. Every number is transparent -- you can verify the formula yourself.
     </p>
 
     <div class="data-table-container">
@@ -313,15 +335,30 @@
       </table>
     </div>
     <p style="font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.5rem;">
-      * CTX (Context) values are estimates, not published scores. See note above.
+      * CTX (Context) values are our estimates based on Hall's qualitative framework, not published scores.
     </p>
 
-    <h2>References</h2>
+    <h2>References and further reading</h2>
+
+    <h3>Foundational works</h3>
     <ul class="ref-list">
       <li>Hofstede, G., Hofstede, G. J., & Minkov, M. (2010). <cite>Cultures and Organizations: Software of the Mind</cite>. 3rd ed. New York: McGraw-Hill.</li>
       <li>Hall, E. T. (1976). <cite>Beyond Culture</cite>. New York: Anchor Books.</li>
+      <li>Brown, P. & Levinson, S. C. (1987). <cite>Politeness: Some Universals in Language Usage</cite>. Cambridge: Cambridge University Press.</li>
       <li>Meyer, E. (2014). <cite>The Culture Map: Breaking Through the Invisible Boundaries of Global Business</cite>. New York: PublicAffairs.</li>
+    </ul>
+
+    <h3>Recent research on cultural alignment in AI (2024-2025)</h3>
+    <ul class="ref-list">
+      <li>Masoud, R. I., Liu, Z., Ferianc, M., Treleaven, P., & Rodrigues, M. (2024). Cultural Alignment in Large Language Models: An Explanatory Analysis Based on Hofstede's Cultural Dimensions. <cite>COLING 2025</cite>. <a href="https://arxiv.org/abs/2309.12342" target="_blank" rel="noopener">arXiv:2309.12342</a></li>
+      <li>Li, C., Chen, M., Wang, J., Sitaram, S., & Xie, X. (2024). CultureLLM: Incorporating Cultural Differences into Large Language Models. <cite>NeurIPS 2024</cite>. <a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/9a16935bf54c4af233e25d998b7f4a2c-Abstract-Conference.html" target="_blank" rel="noopener">proceedings.neurips.cc</a></li>
+      <li>Kharchenko, J., Roosta, T., Chadha, A., & Shah, C. (2024). How Well Do LLMs Represent Values Across Cultures? Empirical Analysis Based on Hofstede Cultural Dimensions. <a href="https://arxiv.org/abs/2406.14805" target="_blank" rel="noopener">arXiv:2406.14805</a></li>
+    </ul>
+
+    <h3>Data sources</h3>
+    <ul class="ref-list">
       <li>Clearly Cultural. Geert Hofstede Cultural Dimensions. <a href="https://clearlycultural.com/geert-hofstede-cultural-dimensions/" target="_blank" rel="noopener">clearlycultural.com</a></li>
+      <li>Hofstede Insights. Country Comparison Tool. <a href="https://www.hofstede-insights.com/country-comparison-tool" target="_blank" rel="noopener">hofstede-insights.com</a></li>
     </ul>
 
   </main>
