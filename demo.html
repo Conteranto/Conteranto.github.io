@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conteranto Live Demo - Context-Aware Cultural Translation across 76 languages with cultural dimension controls.">
+  <meta name="keywords" content="translation, cultural translation, AI, NLP, underrepresented languages, live demo">
+  <meta name="author" content="Conteranto Team">
+
+  <meta property="og:title" content="Conteranto - Live Translation Demo">
+  <meta property="og:description" content="Translate with cultural awareness. Control politeness, directness, formality, and attribution across 76 languages.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets/images/conteranto-logo.png">
+
+  <title>Conteranto - Live Translation Demo</title>
+
+  <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="demo-page">
+
+  <!-- Header -->
+  <header class="demo-header">
+    <div class="brand">
+      <a href="./index.html"><h1>Conteranto</h1></a>
+      <span class="badge">LIVE DEMO</span>
+    </div>
+    <nav class="header-nav">
+      <a href="./index.html#research" class="header-link">Research</a>
+      <a href="./index.html#team" class="header-link">Team</a>
+      <a href="./index.html" class="header-link">Home</a>
+    </nav>
+  </header>
+
+  <!-- Intro -->
+  <div class="demo-intro">
+    <div class="intro-content">
+      <p>Translate text across <strong>76 languages</strong> while controlling cultural dimensions like politeness, directness, formality, and attribution. See how the same message transforms when adapted for different cultural norms.</p>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <main class="demo-main">
+
+    <!-- Input Panel -->
+    <section class="input-panel panel">
+      <h3 class="panel-title">Source Text</h3>
+
+      <div class="language-row">
+        <div class="lang-select-wrap">
+          <label class="lang-label" for="sourceLang">From</label>
+          <select id="sourceLang" aria-label="Source language">
+            <option value="en">English</option>
+          </select>
+        </div>
+        <button class="swap-btn" id="swapLangs" title="Swap languages" aria-label="Swap languages">&#8646;</button>
+        <div class="lang-select-wrap">
+          <label class="lang-label" for="targetLang">To</label>
+          <select id="targetLang" aria-label="Target language">
+            <option value="nl">Dutch</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="rep-legend">
+        <span class="rep-legend-title">NLP representation level:</span>
+        <span><span class="rep-dot rep-high"></span> High</span>
+        <span><span class="rep-dot rep-medium"></span> Medium</span>
+        <span><span class="rep-dot rep-low"></span> Low</span>
+        <span><span class="rep-dot rep-very-low"></span> Very low</span>
+      </div>
+
+      <textarea
+        class="source-text-input"
+        id="sourceText"
+        placeholder="Enter text to translate culturally..."
+        maxlength="2000"
+        aria-label="Source text"
+      ></textarea>
+      <div class="char-count" id="charCount">0 / 2000</div>
+
+      <div class="examples-section">
+        <div class="examples-label">Try an example</div>
+        <div class="example-pills" id="examplePhrases"></div>
+      </div>
+    </section>
+
+    <!-- Dimensions Panel -->
+    <section class="dimensions-panel panel">
+      <h3 class="panel-title">Cultural Dimensions</h3>
+
+      <div class="dimension-slider" data-dimension="politeness">
+        <div class="slider-header">
+          <span class="slider-name">Politeness</span>
+          <span class="slider-value">50</span>
+        </div>
+        <div class="slider-track">
+          <input type="range" min="0" max="100" value="50" aria-label="Politeness level">
+        </div>
+        <div class="slider-labels">
+          <span class="label-low">Casual</span>
+          <span class="label-high">Highly Respectful</span>
+        </div>
+      </div>
+
+      <div class="dimension-slider" data-dimension="directness">
+        <div class="slider-header">
+          <span class="slider-name">Directness</span>
+          <span class="slider-value">50</span>
+        </div>
+        <div class="slider-track">
+          <input type="range" min="0" max="100" value="50" aria-label="Directness level">
+        </div>
+        <div class="slider-labels">
+          <span class="label-low">Indirect</span>
+          <span class="label-high">Direct</span>
+        </div>
+      </div>
+
+      <div class="dimension-slider" data-dimension="formality">
+        <div class="slider-header">
+          <span class="slider-name">Formality</span>
+          <span class="slider-value">50</span>
+        </div>
+        <div class="slider-track">
+          <input type="range" min="0" max="100" value="50" aria-label="Formality level">
+        </div>
+        <div class="slider-labels">
+          <span class="label-low">Colloquial</span>
+          <span class="label-high">Ceremonial</span>
+        </div>
+      </div>
+
+      <div class="dimension-slider" data-dimension="attribution">
+        <div class="slider-header">
+          <span class="slider-name">Attribution</span>
+          <span class="slider-value">50</span>
+        </div>
+        <div class="slider-track">
+          <input type="range" min="0" max="100" value="50" aria-label="Attribution level">
+        </div>
+        <div class="slider-labels">
+          <span class="label-low">Impersonal</span>
+          <span class="label-high">Individual Agency</span>
+        </div>
+      </div>
+
+      <button class="translate-btn" id="translateBtn">Translate</button>
+      <div class="translate-hint">or press Ctrl + Enter</div>
+      <div class="error-message" id="errorMessage"></div>
+    </section>
+
+    <!-- Output Panel -->
+    <section class="output-panel panel" id="outputPanel">
+      <h3 class="panel-title">Translation Result</h3>
+
+      <div class="loading-skeleton" id="loadingSkeleton">
+        <div class="translation-comparison">
+          <div class="translation-column">
+            <h4>Standard Translation</h4>
+            <div class="translation-text">
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line"></div>
+            </div>
+          </div>
+          <div class="translation-column">
+            <h4>Culturally Adapted</h4>
+            <div class="translation-text">
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line"></div>
+              <div class="skeleton-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="translation-comparison">
+        <div class="translation-column standard">
+          <h4>Standard Translation</h4>
+          <div class="translation-text placeholder-text" id="standardTranslation">
+            The standard, culturally neutral translation will appear here.
+          </div>
+        </div>
+        <div class="translation-column cultural">
+          <h4>Culturally Adapted <span class="target-lang-label" id="targetLangLabel"></span></h4>
+          <div class="translation-text placeholder-text" id="culturalTranslation">
+            The translation adapted to your chosen cultural dimensions will appear here.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights Panel -->
+    <section class="insights-panel panel" id="insightsPanel">
+      <h3 class="panel-title">Cultural Insights</h3>
+      <div class="cultural-summary placeholder-text" id="culturalSummary">
+        After translating, you will see an explanation of how each cultural dimension shaped the translation and why those choices matter in the target culture.
+      </div>
+      <div class="explanation-cards" id="explanationCards"></div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="demo-footer">
+    <p>
+      Conteranto &mdash; Context-Aware Cultural Translation &mdash;
+      <a href="./index.html">Utrecht University</a> &middot;
+      <a href="./index.html#research">Research</a> &middot;
+      <a href="./index.html#contact">Contact</a>
+    </p>
+  </footer>
+
+  <script type="module" src="./assets/js/modules/demo-app.js"></script>
+</body>
+</html>
