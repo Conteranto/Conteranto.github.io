@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conteranto - How cultural dimension defaults are computed from Hofstede and Hall research data.">
+  <title>Conteranto - Methodology</title>
+  <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body.methodology-page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .methodology-main {
+      flex: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      width: 100%;
+    }
+    .methodology-main h2 {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+    .methodology-main h2:first-child {
+      margin-top: 0;
+    }
+    .methodology-main h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .methodology-main p, .methodology-main li {
+      font-size: var(--text-sm);
+      line-height: 1.75;
+      color: var(--text-dark);
+    }
+    .methodology-main ul {
+      padding-left: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .methodology-main li {
+      margin-bottom: 0.35rem;
+      list-style: disc;
+    }
+    .lead-text {
+      font-size: var(--text-base);
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .formula-box {
+      background: var(--bg-darker);
+      color: var(--text-light);
+      padding: 1.25rem 1.5rem;
+      border-radius: var(--radius-sm);
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: var(--text-sm);
+      line-height: 2;
+      margin: 1rem 0 1.5rem;
+      overflow-x: auto;
+    }
+    .formula-box .dim { color: var(--primary-lighter); font-weight: 600; }
+    .formula-box .src { color: var(--accent-color); }
+    .formula-box .wt { color: var(--text-muted-light); }
+    .mapping-card {
+      background: var(--bg-lighter);
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .mapping-card strong {
+      color: var(--primary-color);
+    }
+    .mapping-card p {
+      margin: 0;
+    }
+    .adj-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--text-sm);
+      margin: 1rem 0;
+    }
+    .adj-table th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      background: var(--bg-muted);
+      font-weight: 600;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .adj-table td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid #f1f5f9;
+      color: var(--text-dark);
+    }
+    .adj-table tr:hover td {
+      background: rgba(37, 99, 235, 0.02);
+    }
+    .data-table-container {
+      overflow-x: auto;
+      margin: 1rem 0;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-sm);
+    }
+    #dataTable {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--text-xs);
+      white-space: nowrap;
+    }
+    #dataTable th {
+      position: sticky;
+      top: 0;
+      background: var(--bg-darker);
+      color: var(--text-light);
+      padding: 0.5rem 0.6rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      user-select: none;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    #dataTable th:hover {
+      background: var(--primary-dark);
+    }
+    #dataTable td {
+      padding: 0.4rem 0.6rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    #dataTable tr:hover td {
+      background: rgba(37, 99, 235, 0.04);
+    }
+    #dataTable .num {
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+    #dataTable .adj-yes {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    .loading-msg {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+    }
+    .ref-list {
+      padding-left: 0;
+    }
+    .ref-list li {
+      list-style: none;
+      padding-left: 2rem;
+      text-indent: -2rem;
+      margin-bottom: 0.75rem;
+    }
+    .ref-list cite {
+      font-style: italic;
+    }
+    .note-box {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(16, 185, 129, 0.06));
+      border-left: 3px solid var(--primary-color);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: var(--text-sm);
+      margin: 1rem 0;
+    }
+    @media (max-width: 768px) {
+      .methodology-main { padding: 1.5rem 1rem; }
+      .formula-box { font-size: var(--text-xs); padding: 1rem; }
+    }
+  </style>
+</head>
+<body class="methodology-page">
+
+  <header class="demo-header">
+    <div class="brand">
+      <a href="./index.html"><h1>Conteranto</h1></a>
+      <span class="badge">METHODOLOGY</span>
+    </div>
+    <nav class="header-nav">
+      <a href="./demo.html" class="header-link">Demo</a>
+      <a href="./index.html#research" class="header-link">Research</a>
+      <a href="./index.html" class="header-link">Home</a>
+    </nav>
+  </header>
+
+  <main class="methodology-main">
+
+    <h2>How Cultural Defaults Work</h2>
+    <p class="lead-text">
+      When you select a target language in the Conteranto demo, the four cultural dimension sliders automatically adjust to reflect that culture's typical communication norms. These defaults are computed from established cross-cultural research, not hand-picked.
+    </p>
+
+    <h2>Research Frameworks</h2>
+
+    <h3>Hofstede's Cultural Dimensions</h3>
+    <p>
+      Geert Hofstede's cultural dimensions theory, developed from a study of IBM employees across 76 countries (1967-1973) and extended in <cite>Cultures and Organizations: Software of the Mind</cite> (3rd ed, 2010), provides country-level scores on several cultural axes. We use three:
+    </p>
+    <ul>
+      <li><strong>Power Distance (PDI)</strong> -- the degree to which less powerful members of a society accept that power is distributed unequally. High PDI cultures expect deference to authority.</li>
+      <li><strong>Individualism (IDV)</strong> -- the degree to which individuals are expected to look after only themselves and their immediate family. Low IDV (collectivist) cultures emphasize group harmony and face-saving.</li>
+      <li><strong>Uncertainty Avoidance (UAI)</strong> -- the degree to which members of a society feel uncomfortable with ambiguity. High UAI cultures prefer formal rules and structured communication.</li>
+    </ul>
+
+    <h3>Hall's Context Theory</h3>
+    <p>
+      Edward T. Hall's framework from <cite>Beyond Culture</cite> (1976) classifies cultures along a spectrum from low-context (meaning is stated explicitly) to high-context (meaning is embedded in context, relationships, and nonverbal cues).
+    </p>
+    <div class="note-box">
+      <strong>Note:</strong> Hall did not assign numerical scores to countries. Our context (CTX) values are estimates based on Hall's qualitative framework, Erin Meyer's relative positioning in <cite>The Culture Map</cite> (2014), and regional communication research. These estimates are transparent and shown in the data table below.
+    </div>
+
+    <h2>The Formula</h2>
+    <p>
+      Each of Conteranto's four cultural dimensions is computed as a weighted combination of Hofstede's scores and our context estimate:
+    </p>
+
+    <div class="formula-box">
+      <span class="dim">Politeness</span>  <span class="wt">= 0.35 ×</span> <span class="src">PDI</span> <span class="wt">+ 0.30 ×</span> <span class="src">(100 - IDV)</span> <span class="wt">+ 0.35 ×</span> <span class="src">CTX</span><br>
+      <span class="dim">Directness</span>  <span class="wt">= 0.40 ×</span> <span class="src">IDV</span> <span class="wt">+ 0.35 ×</span> <span class="src">(100 - CTX)</span> <span class="wt">+ 0.25 ×</span> <span class="src">(100 - PDI)</span><br>
+      <span class="dim">Formality</span>   <span class="wt">= 0.35 ×</span> <span class="src">PDI</span> <span class="wt">+ 0.35 ×</span> <span class="src">UAI</span> <span class="wt">+ 0.30 ×</span> <span class="src">CTX</span><br>
+      <span class="dim">Attribution</span> <span class="wt">= 0.55 ×</span> <span class="src">IDV</span> <span class="wt">+ 0.25 ×</span> <span class="src">(100 - PDI)</span> <span class="wt">+ 0.20 ×</span> <span class="src">(100 - CTX)</span>
+    </div>
+
+    <h3>Why these mappings?</h3>
+
+    <div class="mapping-card">
+      <p><strong>Politeness</strong> -- Hierarchical societies (high PDI) use more deference markers. Collectivist cultures (low IDV) prioritize face-saving. High-context communication relies on implicit courtesy.</p>
+    </div>
+    <div class="mapping-card">
+      <p><strong>Directness</strong> -- Individualist cultures (high IDV) value explicit self-expression. Low-context communication requires stating things plainly. Egalitarian societies (low PDI) allow direct challenges.</p>
+    </div>
+    <div class="mapping-card">
+      <p><strong>Formality</strong> -- Hierarchical societies (high PDI) expect formal registers. High uncertainty avoidance (high UAI) prefers structured, rule-following communication. High-context cultures use elaborate forms.</p>
+    </div>
+    <div class="mapping-card">
+      <p><strong>Attribution</strong> -- Individualist cultures (high IDV) use "I" statements and active voice. Egalitarian societies (low PDI) express personal responsibility. Low-context communication names actors explicitly.</p>
+    </div>
+
+    <h2>Linguistic Adjustments</h2>
+    <p>
+      Some languages grammaticalize cultural dimensions beyond what country-level scores capture. For example, Japanese has keigo (a multi-level politeness system built into verb conjugation), Persian has ta'arof (an elaborate courtesy system), and Korean has six distinct speech levels tied to social hierarchy. These linguistic structures amplify certain dimensions independently of Hofstede's country scores.
+    </p>
+    <p>
+      We apply small corrections (+3 to +10 points) for languages with such features. These adjustments are listed in the data table below.
+    </p>
+
+    <table class="adj-table">
+      <thead>
+        <tr>
+          <th>Language</th>
+          <th>Feature</th>
+          <th>Adjustments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Japanese</td><td>Keigo (honorific system)</td><td>Politeness +10, Directness -5, Formality +5</td></tr>
+        <tr><td>Persian</td><td>Ta'arof (courtesy system)</td><td>Politeness +10, Directness -8</td></tr>
+        <tr><td>Korean</td><td>Speech levels (6 registers)</td><td>Politeness +8, Directness -3, Formality +5</td></tr>
+        <tr><td>Thai</td><td>Pronoun/particle system</td><td>Politeness +8, Directness -5</td></tr>
+        <tr><td>Urdu</td><td>Adab (etiquette system)</td><td>Politeness +8, Directness -3</td></tr>
+        <tr><td>Arabic</td><td>Honorific forms</td><td>Politeness +5, Formality +3</td></tr>
+        <tr><td>Hindi</td><td>Honorific verb forms</td><td>Politeness +5</td></tr>
+        <tr><td>Vietnamese</td><td>Pronoun hierarchy</td><td>Politeness +5, Directness -3</td></tr>
+        <tr><td>Dutch</td><td>Culturally amplified directness</td><td>Directness +5, Politeness -3</td></tr>
+        <tr><td>Hebrew</td><td>Dugri (straight talk) culture</td><td>Directness +5, Politeness -3</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Full Data Table</h2>
+    <p>
+      All 76 languages with their research inputs and computed outputs. Hofstede scores (PDI, IDV, UAI) are from published research where available. CTX values are our estimates. Values are clamped to safe ranges (Politeness 20-90, Directness 10-90, Formality 25-85, Attribution 15-85).
+    </p>
+
+    <div class="data-table-container">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th>Language</th>
+            <th>Region</th>
+            <th>PDI</th>
+            <th>IDV</th>
+            <th>UAI</th>
+            <th>CTX*</th>
+            <th>Adj.</th>
+            <th>Pol.</th>
+            <th>Dir.</th>
+            <th>For.</th>
+            <th>Att.</th>
+          </tr>
+        </thead>
+        <tbody id="dataTableBody">
+          <tr><td colspan="11" class="loading-msg">Loading data from API...</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size: var(--text-xs); color: var(--text-muted); margin-top: 0.5rem;">
+      * CTX (Context) values are estimates, not published scores. See note above.
+    </p>
+
+    <h2>References</h2>
+    <ul class="ref-list">
+      <li>Hofstede, G., Hofstede, G. J., & Minkov, M. (2010). <cite>Cultures and Organizations: Software of the Mind</cite>. 3rd ed. New York: McGraw-Hill.</li>
+      <li>Hall, E. T. (1976). <cite>Beyond Culture</cite>. New York: Anchor Books.</li>
+      <li>Meyer, E. (2014). <cite>The Culture Map: Breaking Through the Invisible Boundaries of Global Business</cite>. New York: PublicAffairs.</li>
+      <li>Clearly Cultural. Geert Hofstede Cultural Dimensions. <a href="https://clearlycultural.com/geert-hofstede-cultural-dimensions/" target="_blank" rel="noopener">clearlycultural.com</a></li>
+    </ul>
+
+  </main>
+
+  <footer class="demo-footer">
+    <p>
+      Conteranto -- Context-Aware Cultural Translation --
+      <a href="./index.html">Utrecht University</a> &middot;
+      <a href="./demo.html">Demo</a> &middot;
+      <a href="./index.html#contact">Contact</a>
+    </p>
+  </footer>
+
+  <script>
+    const API = 'https://conteranto-demo.up.railway.app';
+    async function loadData() {
+      try {
+        const res = await fetch(`${API}/api/methodology`);
+        const data = await res.json();
+        const tbody = document.getElementById('dataTableBody');
+        tbody.innerHTML = '';
+        for (const lang of data.languages) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${lang.name}</td>
+            <td>${lang.region}</td>
+            <td class="num">${lang.pdi ?? '-'}</td>
+            <td class="num">${lang.idv ?? '-'}</td>
+            <td class="num">${lang.uai ?? '-'}</td>
+            <td class="num">${lang.ctx ?? '-'}</td>
+            <td class="num ${lang.linguistic_adjustment ? 'adj-yes' : ''}">${lang.linguistic_adjustment ? 'Yes' : ''}</td>
+            <td class="num">${lang.politeness}</td>
+            <td class="num">${lang.directness}</td>
+            <td class="num">${lang.formality}</td>
+            <td class="num">${lang.attribution}</td>
+          `;
+          tbody.appendChild(tr);
+        }
+      } catch {
+        document.getElementById('dataTableBody').innerHTML =
+          '<tr><td colspan="11" class="loading-msg">Failed to load data. Please try refreshing.</td></tr>';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', loadData);
+  </script>
+</body>
+</html>

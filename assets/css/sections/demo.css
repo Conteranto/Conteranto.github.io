@@ -369,6 +369,22 @@ body.demo-page {
   margin-bottom: 0.35rem;
 }
 
+.defaults-note {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+.defaults-note a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.defaults-note a:hover {
+  text-decoration: underline;
+}
+
 .slider-name {
   font-weight: 600;
   font-size: var(--text-sm);
