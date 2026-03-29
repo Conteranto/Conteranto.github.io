@@ -6,10 +6,24 @@ let culturalDefaults = {};
 
 const DEFAULT_DIMENSIONS = { politeness: 50, directness: 50, formality: 50, attribution: 50 };
 
+// Context modifiers: adjustments applied on top of language defaults
+// In business, politeness drops and directness rises (efficiency matters).
+// In social/personal, politeness and indirectness increase (relationships matter).
+// In academic, formality and attribution rise (precision matters).
+const CONTEXT_MODIFIERS = {
+  general:    { politeness: 0, directness: 0, formality: 0, attribution: 0 },
+  business:   { politeness: -8, directness: +12, formality: +5, attribution: +10 },
+  academic:   { politeness: +3, directness: +5, formality: +15, attribution: +12 },
+  social:     { politeness: +10, directness: -12, formality: -10, attribution: -5 },
+  customer:   { politeness: +12, directness: -5, formality: +5, attribution: -8 },
+  diplomatic: { politeness: +15, directness: -15, formality: +12, attribution: -12 },
+};
+
 const state = {
   sourceText: '',
   sourceLang: 'en',
   targetLang: 'nl',
+  context: 'general',
   politeness: 50,
   directness: 50,
   formality: 50,
@@ -44,6 +58,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     state.sourceText = e.target.value;
     updateCharCount();
   });
+
+  const contextSelect = $('#contextSelect');
+  if (contextSelect) {
+    contextSelect.addEventListener('change', (e) => {
+      state.context = e.target.value;
+      applyCulturalDefaults(state.targetLang);
+    });
+  }
 
   if (EXAMPLES.length > 0) {
     loadExample(EXAMPLES[0]);
@@ -108,18 +130,20 @@ function getRepLabel(level) {
 }
 
 function applyCulturalDefaults(langCode) {
-  const defaults = culturalDefaults[langCode] || DEFAULT_DIMENSIONS;
+  const base = culturalDefaults[langCode] || DEFAULT_DIMENSIONS;
+  const mod = CONTEXT_MODIFIERS[state.context] || CONTEXT_MODIFIERS.general;
   const dimensions = ['politeness', 'directness', 'formality', 'attribution'];
 
   dimensions.forEach(dim => {
-    state[dim] = defaults[dim];
+    const value = Math.max(10, Math.min(95, base[dim] + mod[dim]));
+    state[dim] = value;
     const slider = document.querySelector(`.dimension-slider[data-dimension="${dim}"]`);
     if (!slider) return;
     const input = slider.querySelector('input[type="range"]');
     const valueDisplay = slider.querySelector('.slider-value');
-    input.value = defaults[dim];
-    valueDisplay.textContent = defaults[dim];
-    updateSliderLabel(slider, defaults[dim]);
+    input.value = value;
+    valueDisplay.textContent = value;
+    updateSliderLabel(slider, value);
   });
 }
 

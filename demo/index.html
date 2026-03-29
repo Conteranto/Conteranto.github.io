@@ -102,7 +102,19 @@
     <!-- Dimensions Panel -->
     <section class="dimensions-panel panel">
       <h3 class="panel-title">Cultural Dimensions</h3>
-      <p class="defaults-note">Defaults auto-adjust per language. <a href="./methodology/">How are they computed?</a></p>
+      <p class="defaults-note">Defaults auto-adjust per language and context. <a href="./methodology/">How are they computed?</a></p>
+
+      <div class="context-selector">
+        <label class="context-label" for="contextSelect">Context</label>
+        <select id="contextSelect" aria-label="Communication context">
+          <option value="general">General</option>
+          <option value="business">Business / Workplace</option>
+          <option value="academic">Academic / Formal</option>
+          <option value="social">Social / Personal</option>
+          <option value="customer">Customer Service</option>
+          <option value="diplomatic">Diplomatic / Official</option>
+        </select>
+      </div>
 
       <div class="dimension-slider" data-dimension="politeness">
         <div class="slider-header">
