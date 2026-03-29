@@ -216,6 +216,34 @@
           </div>
         </div>
       </div>
+
+      <!-- Back-translation -->
+      <div class="back-translation" id="backTranslationPanel" style="display:none;">
+        <div class="back-translation-header">
+          <h4>Back-translation</h4>
+          <div class="back-lang-select">
+            <label for="backLang">Verify in:</label>
+            <select id="backLang" aria-label="Back-translate to">
+              <option value="en">English</option>
+            </select>
+          </div>
+        </div>
+        <div class="translation-comparison">
+          <div class="translation-column standard">
+            <h4>Standard (back-translated)</h4>
+            <div class="translation-text back-text" id="backStandard">
+              <span class="back-placeholder">Click "Back-translate" to verify</span>
+            </div>
+          </div>
+          <div class="translation-column cultural">
+            <h4>Cultural (back-translated)</h4>
+            <div class="translation-text back-text" id="backCultural">
+              <span class="back-placeholder">Click "Back-translate" to verify</span>
+            </div>
+          </div>
+        </div>
+        <button class="back-translate-btn" id="backTranslateBtn">Back-translate</button>
+      </div>
     </section>
 
     <!-- Insights Panel -->

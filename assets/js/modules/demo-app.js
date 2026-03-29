@@ -1,4 +1,4 @@
-import { fetchLanguages, translateText } from './demo-api.js';
+import { fetchLanguages, translateText, backTranslate } from './demo-api.js';
 import { EXAMPLES } from './demo-examples.js';
 
 // Cultural defaults loaded from API (computed from Hofstede + Hall research data)
@@ -29,6 +29,7 @@ const state = {
   formality: 50,
   attribution: 50,
   isLoading: false,
+  lastResult: null,
 };
 
 const $ = (sel) => document.querySelector(sel);
@@ -43,6 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const data = await fetchLanguages();
     populateLanguageSelectors(data);
+    populateBackLangSelector(data);
     // Build defaults map from API data
     for (const region of data.regions_order) {
       for (const lang of (data.regions[region] || [])) {
@@ -65,6 +67,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       state.context = e.target.value;
       applyCulturalDefaults(state.targetLang);
     });
+  }
+
+  const backBtn = $('#backTranslateBtn');
+  if (backBtn) {
+    backBtn.addEventListener('click', handleBackTranslate);
   }
 
   if (EXAMPLES.length > 0) {
@@ -121,6 +128,36 @@ function populateLanguageSelectors(data) {
     state.targetLang = e.target.value;
     applyCulturalDefaults(e.target.value);
   });
+}
+
+function populateBackLangSelector(data) {
+  const select = $('#backLang');
+  if (!select) return;
+  select.innerHTML = '';
+  const common = ['en', 'nl', 'fa', 'de', 'fr', 'es'];
+  const allLangs = [];
+  for (const region of data.regions_order) {
+    for (const lang of (data.regions[region] || [])) {
+      allLangs.push(lang);
+    }
+  }
+  for (const code of common) {
+    const lang = allLangs.find(l => l.code === code);
+    if (lang) {
+      const opt = new Option(`${lang.native} (${lang.name})`, lang.code);
+      opt.selected = lang.code === 'en';
+      select.appendChild(opt);
+    }
+  }
+  const sep = document.createElement('option');
+  sep.disabled = true;
+  sep.textContent = '---';
+  select.appendChild(sep);
+  for (const lang of allLangs) {
+    if (!common.includes(lang.code)) {
+      select.appendChild(new Option(`${lang.native} (${lang.name})`, lang.code));
+    }
+  }
 }
 
 function getRepLabel(level) {
@@ -291,11 +328,52 @@ function renderResult(result) {
     cardsEl.appendChild(card);
   });
 
+  state.lastResult = result;
+  const backPanel = $('#backTranslationPanel');
+  if (backPanel) {
+    backPanel.style.display = 'block';
+    $('#backStandard').innerHTML = '<span class="back-placeholder">Click "Back-translate" to verify</span>';
+    $('#backCultural').innerHTML = '<span class="back-placeholder">Click "Back-translate" to verify</span>';
+    $('#backStandard').classList.remove('has-result');
+    $('#backCultural').classList.remove('has-result');
+  }
+
   outputPanel.style.opacity = '0';
   requestAnimationFrame(() => {
     outputPanel.style.transition = 'opacity 0.4s ease';
     outputPanel.style.opacity = '1';
   });
+}
+
+async function handleBackTranslate() {
+  if (!state.lastResult) return;
+
+  const btn = $('#backTranslateBtn');
+  btn.disabled = true;
+  btn.textContent = 'Translating back...';
+
+  const backLang = $('#backLang').value;
+
+  try {
+    const result = await backTranslate({
+      standard_text: state.lastResult.standard_translation,
+      cultural_text: state.lastResult.cultural_translation,
+      source_language: state.targetLang,
+      target_language: backLang,
+    });
+
+    const backStd = $('#backStandard');
+    const backCul = $('#backCultural');
+    backStd.textContent = result.standard;
+    backStd.classList.add('has-result');
+    backCul.textContent = result.cultural;
+    backCul.classList.add('has-result');
+  } catch (err) {
+    showError(err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Back-translate';
+  }
 }
 
 function setLoading(loading) {

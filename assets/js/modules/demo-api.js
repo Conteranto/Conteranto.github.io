@@ -35,3 +35,18 @@ export async function translateText(params) {
 
   return res.json();
 }
+
+export async function backTranslate(params) {
+  const res = await fetch(`${API_BASE}/api/back-translate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(params),
+  });
+
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}));
+    throw new Error(data.detail || 'Back-translation failed.');
+  }
+
+  return res.json();
+}
