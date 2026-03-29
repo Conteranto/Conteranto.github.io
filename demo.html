@@ -71,11 +71,16 @@
       </div>
 
       <div class="rep-legend">
-        <span class="rep-legend-title">NLP representation level:</span>
-        <span><span class="rep-dot rep-high"></span> High</span>
-        <span><span class="rep-dot rep-medium"></span> Medium</span>
-        <span><span class="rep-dot rep-low"></span> Low</span>
-        <span><span class="rep-dot rep-very-low"></span> Very low</span>
+        <div class="rep-legend-top">
+          <span class="rep-legend-title">NLP representation level</span>
+          <button class="info-btn" aria-label="About representation levels" data-tooltip="Indicates how much training data exists for each language in NLP research. Languages marked 'underrepresented' or 'low-resource' in the dropdown have less data, which means cultural translation for them is more novel and valuable.">?</button>
+        </div>
+        <div class="rep-legend-dots">
+          <span><span class="rep-dot rep-high"></span> High</span>
+          <span><span class="rep-dot rep-medium"></span> Medium</span>
+          <span><span class="rep-dot rep-low"></span> Low</span>
+          <span><span class="rep-dot rep-very-low"></span> Very low</span>
+        </div>
       </div>
 
       <textarea

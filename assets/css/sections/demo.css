@@ -234,11 +234,7 @@ body.demo-page {
 
 /* --- Representation Legend --- */
 .rep-legend {
-  display: flex;
-  align-items: center;
-  gap: 0.9rem;
-  flex-wrap: wrap;
-  padding: 0.5rem 0.75rem;
+  padding: 0.6rem 0.75rem;
   background: var(--bg-muted);
   border-radius: var(--radius-sm);
   margin-bottom: 1rem;
@@ -246,12 +242,27 @@ body.demo-page {
   color: var(--text-muted);
 }
 
+.rep-legend-top {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.4rem;
+}
+
 .rep-legend-title {
   font-weight: 600;
   color: var(--text-dark);
+  font-size: var(--text-xs);
 }
 
-.rep-legend > span {
+.rep-legend-dots {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.rep-legend-dots > span {
   display: flex;
   align-items: center;
   gap: 0.3rem;
@@ -259,8 +270,8 @@ body.demo-page {
 
 .rep-dot {
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   flex-shrink: 0;
 }
