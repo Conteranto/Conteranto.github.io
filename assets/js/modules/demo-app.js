@@ -173,18 +173,8 @@ function initExamples() {
 
 function loadExample(example) {
   state.sourceText = example.text;
-  state.sourceLang = example.source;
-  state.targetLang = example.target;
-
   $('#sourceText').value = example.text;
   updateCharCount();
-
-  const sourceSelect = $('#sourceLang');
-  const targetSelect = $('#targetLang');
-  if (sourceSelect) sourceSelect.value = example.source;
-  if (targetSelect) targetSelect.value = example.target;
-
-  applyCulturalDefaults(example.target);
 }
 
 function initSwapButton() {
