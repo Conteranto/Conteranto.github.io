@@ -8,10 +8,10 @@
  */
 export function initTranslationDemo() {
     const politenessSlider = document.getElementById('politenessSlider');
-    const directnessSlider = document.getElementById('directnessSlider');
+    const formalitySlider = document.getElementById('formalitySlider');
     const translationOutput = document.getElementById('translationOutput');
 
-    if (!politenessSlider || !directnessSlider || !translationOutput) {
+    if (!politenessSlider || !formalitySlider || !translationOutput) {
         console.warn('Translation demo elements not found');
         return;
     }
@@ -21,49 +21,49 @@ export function initTranslationDemo() {
     // Formality = language register (informal → formal)
     const translations = {
         lowPoliteness: {
-            lowDirectness: "Hey, can you send that report?",
-            medDirectness: "Can you send the report?",
-            highDirectness: "Could you please forward the report at your earliest convenience?"
+            lowFormality: "Hey, can you send that report?",
+            medFormality: "Can you send the report?",
+            highFormality: "Could you please forward the report at your earliest convenience?"
         },
         medPoliteness: {
-            lowDirectness: "Hey, would you mind sending the report when you get a chance?",
-            medDirectness: "Could you please send the report?",
-            highDirectness: "We would kindly ask you to submit the report."
+            lowFormality: "Hey, would you mind sending the report when you get a chance?",
+            medFormality: "Could you please send the report?",
+            highFormality: "We would kindly ask you to submit the report."
         },
         highPoliteness: {
-            lowDirectness: "I'd really appreciate it if you could send the report!",
-            medDirectness: "I would be grateful if you could send the report.",
-            highDirectness: "I would be most grateful if you could kindly submit the report at your convenience."
+            lowFormality: "I'd really appreciate it if you could send the report!",
+            medFormality: "I would be grateful if you could send the report.",
+            highFormality: "I would be most grateful if you could kindly submit the report at your convenience."
         }
     };
 
     function updateTranslation() {
         const politeness = parseInt(politenessSlider.value);
-        const directness = parseInt(directnessSlider.value);
+        const formality = parseInt(formalitySlider.value);
 
-        let politenessLevel, directnessLevel;
+        let politenessLevel, formalityLevel;
 
         // Determine politeness level
         if (politeness < 35) politenessLevel = 'lowPoliteness';
         else if (politeness < 70) politenessLevel = 'medPoliteness';
         else politenessLevel = 'highPoliteness';
 
-        // Determine directness level
-        if (directness < 35) directnessLevel = 'lowDirectness';
-        else if (directness < 70) directnessLevel = 'medDirectness';
-        else directnessLevel = 'highDirectness';
+        // Determine formality level
+        if (formality < 35) formalityLevel = 'lowFormality';
+        else if (formality < 70) formalityLevel = 'medFormality';
+        else formalityLevel = 'highFormality';
 
         // Update translation output with animation
         translationOutput.style.opacity = '0.5';
         setTimeout(() => {
-            translationOutput.textContent = translations[politenessLevel][directnessLevel];
+            translationOutput.textContent = translations[politenessLevel][formalityLevel];
             translationOutput.style.opacity = '1';
         }, 150);
     }
 
     // Add event listeners to sliders
     politenessSlider.addEventListener('input', updateTranslation);
-    directnessSlider.addEventListener('input', updateTranslation);
+    formalitySlider.addEventListener('input', updateTranslation);
 
     // Set initial translation
     updateTranslation();
