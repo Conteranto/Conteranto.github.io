@@ -17,21 +17,23 @@ export function initTranslationDemo() {
     }
 
     // Translation variations based on slider values
+    // Politeness = respect level (casual → respectful)
+    // Formality = language register (informal → formal)
     const translations = {
         lowPoliteness: {
-            lowDirectness: "Maybe you could send the report sometime?",
-            medDirectness: "Would you be able to send the report?",
-            highDirectness: "Send the report."
+            lowDirectness: "Hey, can you send that report?",
+            medDirectness: "Can you send the report?",
+            highDirectness: "Could you please forward the report at your earliest convenience?"
         },
         medPoliteness: {
-            lowDirectness: "I was wondering if you might send the report?",
+            lowDirectness: "Hey, would you mind sending the report when you get a chance?",
             medDirectness: "Could you please send the report?",
-            highDirectness: "Please send the report."
+            highDirectness: "We would kindly ask you to submit the report."
         },
         highPoliteness: {
-            lowDirectness: "Would you possibly have time to send that report?",
-            medDirectness: "Could you please send that report when you have a moment?",
-            highDirectness: "I would appreciate it if you could send the report."
+            lowDirectness: "I'd really appreciate it if you could send the report!",
+            medDirectness: "I would be grateful if you could send the report.",
+            highDirectness: "I would be most grateful if you could kindly submit the report at your convenience."
         }
     };
 

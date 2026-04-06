@@ -45,6 +45,7 @@
                 <li><a href="#solution" class="nav-link">Solution</a></li>
                 <li><a href="#features" class="nav-link">Features</a></li>
                 <li><a href="#philosophy" class="nav-link">Philosophy</a></li>
+                <li><a href="#methodology" class="nav-link">Methodology</a></li>
                 <li><a href="#research" class="nav-link">Research</a></li>
                 <li><a href="#team" class="nav-link">Team</a></li>
                 <li><a href="#contact" class="nav-link cta-nav">Contact</a></li>
@@ -91,9 +92,9 @@
                         <div class="card-header">Japanese</div>
                         <div class="card-content">レポートを送っていただけますか？</div>
                         <div class="card-meta">
-                            <span class="meta-badge">Formal</span>
                             <span class="meta-badge">Polite</span>
-                            <span class="meta-badge">Indirect</span>
+                            <span class="meta-badge">Formal</span>
+                            <span class="meta-badge">Distant</span>
                         </div>
                     </div>
                 </div>
@@ -131,8 +132,8 @@
                 <ul class="problem-list">
                     <li>What sounds neutral in English may sound aggressive in Chinese.</li>
                     <li>A polite Dutch request may become too formal in Japanese.</li>
-                    <li>English tolerates directness. Persian prefers softening.</li>
-                    <li>Some cultures use passive voice to avoid blame, others see it as unclear.</li>
+                    <li>English tolerates casual closeness. Japanese prefers respectful distance.</li>
+                    <li>Some cultures keep things personal and warm, others stay impersonal and reserved.</li>
                 </ul>
                 <p class="problem-emphasis">
                     <strong>Current tools assume: one style fits all.</strong>
@@ -170,7 +171,7 @@
                     <p>
                         Instead of producing a single static result, Conteranto generates translations
                         that respect cultural communication norms. The system automatically initializes
-                        four key parameters based on the target language and communication context.
+                        three key parameters based on the target language and communication context.
                     </p>
                     <div class="solution-features">
                         <div class="feature-highlight">
@@ -212,7 +213,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Key Features</h2>
-                <p class="section-subtitle">Four cultural parameters that make the difference</p>
+                <p class="section-subtitle">Three cultural parameters that make the difference</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
@@ -222,16 +223,7 @@
                         </svg>
                     </div>
                     <h3>Politeness</h3>
-                    <p>Adjust formality levels from casual to highly respectful, matching cultural expectations</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                        </svg>
-                    </div>
-                    <h3>Directness</h3>
-                    <p>Control whether communication is explicit or uses subtle, indirect phrasing</p>
+                    <p>Adjust the respect level from casual to highly respectful, matching what the listener expects in their culture</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -241,7 +233,7 @@
                         </svg>
                     </div>
                     <h3>Formality</h3>
-                    <p>Adapt language register for business, academic, or casual contexts</p>
+                    <p>Adapt language register from informal everyday speech to formal professional or academic tone</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -251,8 +243,8 @@
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
                         </svg>
                     </div>
-                    <h3>Attribution</h3>
-                    <p>Handle credit and responsibility according to cultural communication norms</p>
+                    <h3>Intimacy</h3>
+                    <p>Control how personal or distant the tone feels, from warm and close to impersonal and detached</p>
                 </div>
             </div>
             <div class="feature-demo">
@@ -267,15 +259,15 @@
                             <input type="range" min="0" max="100" value="70" class="slider" id="politenessSlider">
                             <div class="slider-labels">
                                 <span>Casual</span>
-                                <span>Formal</span>
+                                <span>Respectful</span>
                             </div>
                         </div>
                         <div class="slider-group">
-                            <label>Directness</label>
+                            <label>Formality</label>
                             <input type="range" min="0" max="100" value="50" class="slider" id="directnessSlider">
                             <div class="slider-labels">
-                                <span>Indirect</span>
-                                <span>Direct</span>
+                                <span>Informal</span>
+                                <span>Formal</span>
                             </div>
                         </div>
                     </div>
@@ -326,6 +318,122 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section id="methodology" class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Methodology</h2>
+          <p class="section-subtitle">NLP, Cultural Variation, and Multilingual Language Modelling</p>
+        </div>
+        <div class="methodology-content">
+          <p class="methodology-intro">
+            When you translate a sentence, the words might be correct but the tone is wrong.
+            A polite email in English can sound rude in Japanese. A casual request in Dutch
+            can feel too formal in Spanish. Recent research (Havaldar et al., ACL 2025) confirms
+            that all major translation systems flatten these style dimensions -- politeness gets
+            neutralized, formality gets lost, and the problem is worse for non-Western languages.
+            These three thesis projects study this problem and how to fix it.
+          </p>
+
+          <!-- Core Paper -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-number">--</div>
+              <div class="project-info">
+                <h3 class="project-title">Core Paper and Dataset</h3>
+                <p class="project-question">
+                  All three projects build on the same published research: a study of how
+                  politeness, formality, and intimacy change during translation across
+                  languages -- with open data and code.
+                </p>
+              </div>
+            </div>
+            <div class="project-references">
+              <div class="reference-item">
+                <div class="reference-header">
+                  <span class="venue-badge">ACL 2025</span>
+                </div>
+                <h4 class="reference-title">Towards Style Alignment in Cross-Cultural Translation</h4>
+                <p class="dataset-info">Annotated text for politeness (4 languages), formality (4 languages), and intimacy (6 languages) -- about 40,000 examples total. Includes translation outputs from GPT-4, Google Translate, Llama, and more.</p>
+                <div class="reference-links">
+                  <a href="https://arxiv.org/abs/2507.00216" target="_blank" rel="noopener" class="arxiv-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    ArXiv
+                  </a>
+                  <a href="https://github.com/shreyahavaldar/style_alignment" target="_blank" rel="noopener" class="github-badge">
+                    <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                    Code + Data
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-number">01</div>
+              <div class="project-info">
+                <h3 class="project-title">Cultural Variation in Multilingual Language Use</h3>
+                <p class="project-question">
+                  How do politeness and formality change when text is translated
+                  between languages?
+                </p>
+              </div>
+            </div>
+            <p class="project-description">
+              The dataset already includes translations from six systems (GPT-4, Google
+              Translate, Llama, and more) with style scores. Compare the original scores
+              with the translated scores to find out which language pairs lose the most
+              politeness, which lose the most formality, and where extreme tones get
+              flattened into something neutral.
+            </p>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-number">02</div>
+              <div class="project-info">
+                <h3 class="project-title">Cultural and Cross-Lingual Evaluation Methods</h3>
+                <p class="project-question">
+                  How can we measure whether a translation keeps the right
+                  cultural tone?
+                </p>
+              </div>
+            </div>
+            <p class="project-description">
+              Train style classifiers using the annotated data from the paper -- one
+              classifier per language per dimension. Then use them to score translations
+              and show that standard quality metrics (like BLEU) completely miss tone
+              problems that your classifiers catch.
+            </p>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-number">03</div>
+              <div class="project-info">
+                <h3 class="project-title">Style Alignment in Non-Western Languages</h3>
+                <p class="project-question">
+                  Do translation models lose more style for non-Western languages
+                  like Japanese and Chinese?
+                </p>
+              </div>
+            </div>
+            <p class="project-description">
+              The dataset already includes Japanese and Chinese alongside Western languages.
+              The paper found that non-Western languages lose more style in translation.
+              Dig deeper into why this happens, test whether the RASTA method closes the
+              gap, and analyze which style levels are hardest to preserve for each culture.
+            </p>
+          </div>
+
+        </div>
+      </div>
     </section>
 
     <!-- Research Section -->
@@ -621,7 +729,7 @@
                     <h4>Application</h4>
                     <ul class="footer-links">
                         <li><a href="https://app.conteranto.com">Try the App</a></li>
-                        <li><a href="https://app.conteranto.com/methodology/">Methodology</a></li>
+                        <li><a href="#methodology">Methodology</a></li>
                         <li><a href="#outcomes">Outcomes</a></li>
                     </ul>
                 </div>

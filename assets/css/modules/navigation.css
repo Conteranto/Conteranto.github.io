@@ -178,7 +178,7 @@
     }
 
     .nav-menu.active {
-        max-height: 400px;
+        max-height: 500px;
         padding: var(--spacing-sm) 0;
     }
 
