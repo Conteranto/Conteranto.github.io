@@ -26,6 +26,7 @@
 /* Section-Specific Styles */
 @import url('sections/hero.css');
 @import url('sections/research.css');
+@import url('sections/methodology.css');
 @import url('sections/other-sections.css');
 @import url('sections/demo.css');
 
@@ -56,7 +57,9 @@
 
     .publication-item,
     .team-card,
-    .outcome-card {
+    .outcome-card,
+    .project-card,
+    .reference-item {
         box-shadow: none;
         border: 1px solid var(--text-muted);
     }

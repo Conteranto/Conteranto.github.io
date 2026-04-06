@@ -39,7 +39,9 @@ export function initScrollAnimations() {
         .team-card,
         .contact-card,
         .feature-highlight,
-        .philosophy-link
+        .philosophy-link,
+        .project-card,
+        .reference-item
     `);
 
     animateElements.forEach((element, index) => {
