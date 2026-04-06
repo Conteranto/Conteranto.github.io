@@ -6,11 +6,11 @@
 
 ## Overview
 
-Conteranto is a translation system that introduces a **cultural-context layer** powered by large language models and explainable pragmatics. Unlike traditional machine translation that focuses solely on linguistic accuracy, Conteranto respects cultural communication norms and adjusts tone, politeness, directness, and formality based on the target language and communication context.
+Conteranto is a translation system that introduces a **cultural-context layer** powered by large language models and explainable pragmatics. Unlike traditional machine translation that focuses solely on linguistic accuracy, Conteranto respects cultural communication norms and adjusts politeness, formality, and intimacy based on the target language and communication context.
 
 ## The Problem
 
-Current machine translation has made enormous progress in accuracy, yet it still struggles with **how things are said**. Politeness, directness, or indirect phrasing are not mere stylistic choices: they carry cultural meaning.
+Current machine translation has made enormous progress in accuracy, yet it still struggles with **how things are said**. Politeness, formality, and personal tone are not mere stylistic choices: they carry cultural meaning.
 
 - A phrase that sounds neutral in English may be offensive in Persian if translated too bluntly
 - A polite Dutch request can become unnecessarily formal in Japanese if tone is not adapted
@@ -18,14 +18,13 @@ Current machine translation has made enormous progress in accuracy, yet it still
 
 ## Our Solution
 
-Conteranto generates translations that respect cultural communication norms through four key parameters:
+Conteranto generates translations that respect cultural communication norms through three style dimensions, each validated by multilingual research data (Havaldar et al., ACL 2025):
 
 ### Core Features
 
-1. **Politeness** - Adjust formality levels from casual to highly respectful
-2. **Directness** - Control whether communication is explicit or uses subtle, indirect phrasing
-3. **Formality** - Adapt language register for business, academic, or casual contexts
-4. **Attribution** - Handle credit and responsibility according to cultural communication norms
+1. **Politeness** - Adjust the respect level from casual to highly respectful
+2. **Formality** - Adapt language register from informal everyday speech to formal professional tone
+3. **Intimacy** - Control how personal or distant the tone feels
 
 ### Key Capabilities
 
