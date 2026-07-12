@@ -90,6 +90,7 @@ The codebase has been completely restructured with a modular architecture for be
 ```
 Conteranto/
 ├── index.html                          # Main website entry point
+├── CNAME                               # Custom domain (conteranto.com)
 ├── assets/
 │   ├── css/
 │   │   ├── main.css                    # Main CSS entry point (imports all modules)
@@ -98,31 +99,30 @@ Conteranto/
 │   │   │   ├── layout.css              # Container, sections, grids
 │   │   │   ├── components.css          # Reusable components (buttons, cards, badges)
 │   │   │   └── navigation.css          # Navbar, mobile menu, links
-│   │   ├── sections/                   # Section-specific styles
-│   │   │   ├── hero.css                # Hero section with translation demo
-│   │   │   ├── research.css            # Research publications (enhanced typography)
-│   │   │   └── other-sections.css      # Problem, Solution, Features, Team, etc.
-│   │   └── styles.css                  # Legacy file (deprecated)
+│   │   └── sections/                   # Section-specific styles
+│   │       ├── hero.css                # Hero section with translation cards
+│   │       ├── research.css            # Research publications (enhanced typography)
+│   │       ├── methodology.css         # Methodology section
+│   │       ├── demo.css                # Interactive demo styles
+│   │       └── other-sections.css      # Problem, Solution, Features, Team, etc.
 │   ├── js/
 │   │   ├── main.js                     # Main JS entry point (ES6 modules)
-│   │   ├── modules/                    # Core JS modules
-│   │   │   ├── navigation.js           # Navigation & scroll behavior
-│   │   │   ├── interactive.js          # Translation demo, clipboard
-│   │   │   ├── animations.js           # Scroll animations, lazy loading
-│   │   │   └── utils.js                # Utility functions
-│   │   └── script.js                   # Legacy file (deprecated)
+│   │   └── modules/                    # Core JS modules
+│   │       ├── navigation.js           # Navigation & scroll behavior
+│   │       ├── interactive.js          # Translation demo, clipboard
+│   │       ├── animations.js           # Scroll animations, lazy loading
+│   │       └── utils.js                # Utility functions
 │   └── images/
-│       ├── conteranto-logo.png         # Main logo
-│       ├── conteranto-logo-alt.png     # Alternative logo
-│       ├── favicon.png                 # Browser favicon
+│       ├── conteranto-icon.svg         # Brand icon (nav, favicon, footer)
+│       ├── conteranto-logo.png         # Design sketch artwork
+│       ├── conteranto-logo.svg         # Logo (SVG)
+│       ├── og-image.jpg                # Social sharing image (1200x630)
+│       ├── favicon.png                 # Browser favicon (PNG fallback)
 │       ├── essay1.jpg                  # Philosophy essay 1
 │       ├── essay2.jpg                  # Philosophy essay 2
 │       └── essay3.jpg                  # Philosophy essay 3
-├── .gitignore                          # Git ignore rules
 ├── README.md                           # This file
-├── LICENSE                             # License information
-├── CONTRIBUTING.md                     # Contribution guidelines
-└── DEPLOYMENT.md                       # Deployment instructions
+└── LICENSE                             # License information
 ```
 
 ### Architecture Highlights
@@ -192,36 +192,18 @@ http-server -p 8000
 #### Option 4: Direct File Access
 Simply open `index.html` directly in your browser (some features may not work without a server)
 
-## Deployment to GitHub Pages
+## Deployment
 
-### Step 1: Initialize Git Repository (if not already done)
+The site is served by GitHub Pages from the `main` branch root of [`Conteranto/Conteranto.github.io`](https://github.com/Conteranto/Conteranto.github.io), with the custom apex domain `conteranto.com` configured via the `CNAME` file.
+
+Deploying = pushing to `main`:
+
 ```bash
-cd Conteranto
-git init
-git add .
-git commit -m "Initial commit: Conteranto website"
+git push origin main
+# Live at https://conteranto.com within a minute or two
 ```
 
-### Step 2: Create GitHub Repository
-1. Go to [GitHub](https://github.com) and create a new repository named `Conteranto`
-2. Don't initialize with README (we already have one)
-
-### Step 3: Push to GitHub
-```bash
-# Add remote repository
-git remote add origin https://github.com/YOUR-USERNAME/Conteranto.git
-
-# Push to main branch
-git branch -M main
-git push -u origin main
-```
-
-### Step 4: Enable GitHub Pages
-1. Go to repository Settings
-2. Navigate to Pages section
-3. Select Source: `main` branch, `/ (root)` folder
-4. Click Save
-5. Your site will be published at: `https://YOUR-USERNAME.github.io/Conteranto/`
+The interactive demo application lives in a separate repository and is deployed independently at [app.conteranto.com](https://app.conteranto.com).
 
 ## Browser Support
 
@@ -264,13 +246,7 @@ git push -u origin main
 
 ## Contributing
 
-We welcome contributions from the community! If you'd like to contribute:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Found a problem or have a suggestion? Please open an issue on the repository.
 
 ## License
 
