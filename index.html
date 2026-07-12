@@ -686,5 +686,11 @@
 
     <!-- Scripts - ES6 Modules -->
     <script type="module" src="./assets/js/main.js"></script>
+    <script>
+        try {
+            var payload = JSON.stringify({ site: 'www', path: location.pathname, referrer: document.referrer || '' });
+            if (navigator.sendBeacon) navigator.sendBeacon('https://app.conteranto.com/api/event', new Blob([payload], { type: 'text/plain' }));
+        } catch (e) {}
+    </script>
 </body>
 </html>
