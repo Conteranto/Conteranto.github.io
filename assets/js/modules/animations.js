@@ -34,14 +34,11 @@ export function initScrollAnimations() {
     // Elements to animate on scroll
     const animateElements = document.querySelectorAll(`
         .feature-card,
-        .example-card,
         .outcome-card,
         .team-card,
         .contact-card,
         .feature-highlight,
-        .philosophy-link,
-        .project-card,
-        .reference-item
+        .philosophy-link
     `);
 
     animateElements.forEach((element, index) => {

@@ -106,31 +106,3 @@ export function initCopyToClipboard() {
 
     console.log('✓ Copy to clipboard initialized');
 }
-
-/**
- * Add form validation if contact form exists
- */
-export function initFormValidation() {
-    const contactForm = document.getElementById('contactForm');
-
-    if (!contactForm) {
-        return;
-    }
-
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Basic form validation
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-
-        // Example: send data to server
-        console.log('Form submitted:', data);
-
-        // Show success message
-        alert('Thank you for your message! We will get back to you soon.');
-        contactForm.reset();
-    });
-
-    console.log('✓ Form validation initialized');
-}

@@ -8,7 +8,7 @@
 
 // Import modules
 import { initNavigation, initSmoothScroll } from './modules/navigation.js';
-import { initTranslationDemo, initCopyToClipboard, initFormValidation } from './modules/interactive.js';
+import { initTranslationDemo, initCopyToClipboard } from './modules/interactive.js';
 import { initScrollAnimations, initLazyLoading } from './modules/animations.js';
 import { logBranding } from './modules/utils.js';
 
@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize interactive features
     initTranslationDemo();
     initCopyToClipboard();
-    initFormValidation();
 
     // Initialize animations
     initScrollAnimations();
